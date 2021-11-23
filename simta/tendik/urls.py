@@ -1,7 +1,7 @@
-from django.urls import path, include
-
-from . import views
+from django.urls import path
+from tendik.views import dashboardView, pembimbingView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', dashboardView.as_view(), name='index'),
+    path('pembimbing', pembimbingView.as_view(), name='pembimbing'),
 ]
