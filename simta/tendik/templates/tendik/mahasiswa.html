@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Mahasiswa</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="mahasiswa.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Mahasiswa</li>
+        </ol>
+        <div class="card mb-4">
+<!--                             
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div> -->
+
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                DataTable Example
+            </div>
+            
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>PRODI</th>
+                            <th>FAKULTAS</th>
+                            <th>KELAS</th>
+                            <th>SEMESTER</th>
+                            <th>TAHUN MASUK</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Syamsul Alamsyam Slamet</td>
+                            <td>181111109</td>
+                            <td>Informatika</td>
+                            <td>FTI</td>
+                            <td>A</td>
+                            <td>11</td>
+                            <td>20001</td>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <button type="button" class="btn btn-warning mb-2">Edit</button>
+                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

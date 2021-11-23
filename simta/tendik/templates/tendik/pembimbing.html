@@ -1,7 +1,43 @@
 {% extends 'main.html' %}
 
 {% block content %}
-
-Pembimbing
-
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Pembimbing</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Pembimbing</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Dosen Pembimbing
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIP</th>
+                            <th>NIDN</th>
+                            <th>NO.HP</th>
+                            <th>Program Studi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nama</td>
+                            <td>NIP</td>
+                            <td>NIDN</td>
+                            <td>NO.HP</td>
+                            <td>Program Studi</td>
+                            <td>Aksi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
