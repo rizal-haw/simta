@@ -1,0 +1,78 @@
+{% extends 'main-mhs.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">pembimbing</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Pembimbing</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div>
+        </div>
+        <div class="card">
+            <div class="d-flex justify-content-between card-header">
+                <div>
+                    <h5 class="">Dosen pembimbing</h5>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="mx-2"><i class="fa fa-plus" aria-hidden="true"></i></span><span>pilih dosen pembimbing</span></button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel"> pilih pembimbing</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="dropdown d-grid gap-2 ">
+                                    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                      pilih pembimbing 1
+                                    </button> -->
+                                    <select name="pilih dosen" id="cars" class="btn-light">
+                                        <option value="yasin">yasin</option>
+                                        <option value="vena">vena</option>
+                                        <option value="rizal">rizal</option>
+                                    </select>
+                                  </div>
+                                  <div class="dropdown d-grid gap-2 ">
+                                    <!-- <button class="btn btn-secondary dropdown-toggle mt-1"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                      pilih pembimbing 2
+                                    </button> -->
+                                    <select name="pilih dosen" id="cars" class="btn-light">
+                                        <option value="yasin">yasin</option>
+                                        <option value="vena">vena</option>
+                                        <option value="rizal">rizal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-primary">Pilih</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                
+                <h5 class="card-title">pembimbing 1</h5>
+                <p class="card-text">-</p>
+                <h5 class="card-title">pembimbing 2</h5>
+              <p class="card-text">-</p>
+              
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %} 
