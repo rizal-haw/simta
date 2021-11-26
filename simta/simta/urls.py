@@ -20,5 +20,6 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('tendik/', include('tendik.urls')),
     path('mhs/', include('mahasiswa.urls')),
+    path('pembimbing/', include('pembimbing.urls')),
     path('admin/', admin.site.urls),
 ]
