@@ -14,3 +14,11 @@ class pengajuanJudulViewMhs(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'mhs/pengajuan-judul.html')
 
+class proposalViewMhs(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mhs/proposal.html')
+
+class TAViewMhs(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'mhs/tugas-akhir.html')
+
