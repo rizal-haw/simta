@@ -17,3 +17,19 @@ class pengajuanJudulViewPembimbing(View):
 class pengajuanProposalViewPembimbing(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'pembimbing/pengajuan-proposal.html')
+
+class pengajuanTAViewPembimbing(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'pembimbing/pengajuan-ta.html')
+
+class permintaanBimbinganViewPembimbing(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'pembimbing/permintaan-bimbingan.html')
+
+class bimbinganProposalProposalViewPembimbing(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'pembimbing/bimbingan-proposal.html')
+
+class bimbinganTAViewPembimbing(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'pembimbing/bimbingan-ta.html')
