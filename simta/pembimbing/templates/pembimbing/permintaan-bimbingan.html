@@ -1,5 +1,119 @@
 {% extends 'main-pembimbing.html' %}
 
 {% block content %}
-<p>Permintaan Bimbingan</p>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Permintaan Bimbingan</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Mahasiswa</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Permintaan Bimbingan
+            </div>
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel">Informasi</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <fieldset disabled>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Nama</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Nim</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Judul</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                </fieldset>
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                    <label class="btn btn-outline-transparant" for="btncheck1"><span><i class="fas fa-file-download"></i></span> <span>file proposal</span></label>
+                                </div>
+                                <fieldset disabled>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Topik Bimbingan</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Deskripsi</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                            </fieldset>
+                            <div class="mb-3">
+                                <label for="disabledTextInput" class="form-label">Atur Jadwal</label>
+                                <input type="date" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Submit</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead class="btn-success">
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>JUDUL</th>
+                            <th>TOPIK BIMBINGAN</th>
+                            <th>STATUS</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>JUDUL</th>
+                            <th>TOPIK BIMBINGAN</th>
+                            <th>STATUS</th>
+                            <th>
+
+                                <div class="d-flex justify-content-between ">
+        
+                                    <div class="mx-3" >
+    
+                                        <a class="btn btn-success" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                                               <i class="" aria-hidden="true"></i>
+                                        </span><span>
+                                        Lihat Data
+                                        </span></a>
+                                    </div>
+                                </div>
+                            </th>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
