@@ -3,7 +3,7 @@
 {% block content %}
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Pengajuan Judul</h1>
+        <h1 class="mt-4">proposal</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Mahasiswa</li>
@@ -18,35 +18,51 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                DataTable Example
+                proposal
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
-                    <thead>
+                    <thead class="btn-success">
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
-                            <th>NIM</th>
-                            <th>PRODI</th>
-                            <th>FAKULTAS</th>
-                            <th>KELAS</th>
-                            <th>SEMESTER</th>
-                            <th>TAHUN MASUK</th>
-                            <th>AKSI</th>
+                            <th>Nim</th>
+                            <th>Judul</th>
+                            <th>Judul revisi</th>
+                            <th>Proposal</th>
+                            <th> Proposal rev</th>
+                            <th> lembar pengesahan rev</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nama</th>
-                            <th>NIM</th>
-                            <th>PRODI</th>
-                            <th>FAKULTAS</th>
-                            <th>KELAS</th>
-                            <th>SEMESTER</th>
-                            <th>TAHUN MASUK</th>
-                            <th>AKSI</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
+                    
+                        <tr>
+                            <td>1</td>
+                            <td>yasin</td>
+                            <td>12345678</td>
+                            <td>SISTEM MONITORING TUGAS AKHIR</td>
+                            <td>SISTEM MONITORING TUGAS AKHIR</td>
+                            <td class="text-center">
+                                <a href="">
+                                    <i class="fas fa-file-download" style="color: black;"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="">
+                                    <i class="fas fa-file-download" style="color: black;"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="">
+                                    <i class="fas fa-file-download" style="color: black;"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="" style="color: cornflowerblue;">Disetujui</a>
+                            </td>
+                        </tr>
+                
                     </tbody>
                 </table>
             </div>

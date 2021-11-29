@@ -1,5 +1,119 @@
 {% extends 'main-pembimbing.html' %}
 
 {% block content %}
-<p>Bimbingan TA</p>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Permintaan Bimbingan</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Mahasiswa</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Permintaan Bimbingan
+            </div>
+            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel">Data Diri Mahasiswa</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <fieldset disabled>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Nama</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Nim</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Fakultas</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Prodi</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Pembimbing 1</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Pembimbing 2</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Submit</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead class="btn-success">
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>JUDUL</th>
+                            <th>PEMBIMBING 1</th>
+                            <th>PEMBIMBING 2</th>
+                            <th>JADWAL SIDANG</th>
+                            <th>STATUS</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIM</th>
+                            <th>JUDUL</th>
+                            <th>PEMBIMBING 1</th>
+                            <th>PEMBIMBING 2</th>
+                            <th>JADWAL SIDANG</th>
+                            <th>STATUS</th>
+                            <th>
+                                <div class="d-flex flex-column">
+        
+                                    <!-- <div class="mx-3" > -->
+    
+                                        <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
+                                               <i class="" aria-hidden="true"></i>
+                                        </span><span>
+                                        Lihat Data
+                                        </span></a>
+                                    <!-- </div> -->
+                                    <div class="d-flex flex-column">
+                                        <button type="button" class="btn btn-warning mb-1">Edit</button>
+                                        <button type="button" class="btn btn-primary">Approve</button>
+                                    </div>
+                                </div>
+                            </th>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

@@ -1,5 +1,118 @@
 {% extends 'main-mhs.html' %}
 
 {% block content %}
-proposal
+<main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Proposal</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Proposal</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-body btn-success">
+                    <var>
+
+                        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                    </var> 
+                    <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                    .
+                </div>
+            </div>
+            <div class="card mb-4 ">
+                <div class="card-header d-flex justify-content-between card-header">
+                    <div>
+                        <i class="fas fa-table me-1"></i>
+                        proposal     
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalToggleLabel">silakan isi data terlebih dahulu</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                      <label for="exampleInputNim" class="form-label">Nim</label>
+                                      <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputnama" class="form-label">nama</label>
+                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Unggah Proposal</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                      </div>
+
+                                      <select class="mb-3 form-select" aria-label="Default select example">
+                                        <option selected>Pembimbing 1</option>
+                                        <option value="1">Rizal</option>
+                                        <option value="2">Yasin</option>
+                                        <option value="3">Venna</option>
+                                      </select>
+                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                        <option selected>Pembimbing 2</option>
+                                        <option value="1">Rizal</option>
+                                        <option value="2">Yasin</option>
+                                        <option value="3">Venna</option>
+                                      </select>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                     <div>
+                         <div>
+                             <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </span><span>
+                                Tambah data
+                            </span></a>
+                         </div>
+                        
+                     </div>
+                
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead class="btn-success">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Nim</th>
+                                <th>Pembimbing 1</th>
+                                <th>Pembimbing 2</th>
+                                <th>Proposal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>yasin</th>
+                                <th>12345</th>
+                                <th>venna</th>
+                                <th>rizal</th>
+                                <td>
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+
+                   
+                </div>
+                    
+            </div>
+        </div>
+    </main>
 {% endblock %}

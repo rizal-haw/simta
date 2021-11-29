@@ -2,23 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 
-class dashboardViewMhs(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'mhs/index.html')
+def dashboardViewMhs(request):
+    return render(request, 'mhs/index.html')
 
-class pembimbingViewMhs(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'mhs/pembimbing.html')
+def pembimbingViewMhs(request):
+    return render(request, 'mhs/pembimbing.html')
 
-class pengajuanJudulViewMhs(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'mhs/pengajuan-judul.html')
+def pengajuanJudulViewMhs(request):
+    return render(request, 'mhs/pengajuan-judul.html')
 
-class proposalViewMhs(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'mhs/proposal.html')
+def proposalViewMhs(request):
+    return render(request, 'mhs/proposal.html')
 
-class TAViewMhs(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'mhs/tugas-akhir.html')
+def TAViewMhs(request):
+    return render(request, 'mhs/tugas-akhir.html')
 
