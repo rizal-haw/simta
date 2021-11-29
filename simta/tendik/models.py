@@ -10,6 +10,6 @@ class Mahasiswa(models.Model):
     fakultas = models.CharField(max_length=20)
     kelas = models.CharField(max_length=3)
     semester = IntegerField()
-    tahun_masuk = models.IntegerField(max_length=4)
+    tahun_masuk = models.IntegerField(null=True)
     
 
