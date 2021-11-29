@@ -1,10 +1,11 @@
 from django.urls import path
 from mahasiswa.views import *
+from . import views
 
 urlpatterns = [
-    path('', dashboardViewMhs.as_view(), name='index'),
-    path('pembimbing', pembimbingViewMhs.as_view(), name='pembimbing'),
-    path('pengajuan-judul', pengajuanJudulViewMhs.as_view(), name='pembimbing'),
-    path('proposal', proposalViewMhs.as_view(), name='proposal'),
-    path('ta', TAViewMhs.as_view(), name='ta'),
+    path('', views.dashboardViewMhs, name='index'),
+    path('pembimbing', views.pembimbingViewMhs, name='pembimbing'),
+    path('pengajuan-judul', views.pengajuanJudulViewMhs, name='pembimbing'),
+    path('proposal', views.proposalViewMhs, name='proposal'),
+    path('ta', views.TAViewMhs, name='ta'),
 ]

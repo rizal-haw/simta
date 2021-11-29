@@ -1,11 +1,12 @@
 from django.urls import path
 from tendik.views import *
+from . import views
 
 urlpatterns = [
-    path('', dashboardView.as_view(), name='index'),
-    path('pembimbing', pembimbingView.as_view(), name='pembimbing'),
-    path('mahasiswa', mahasiswaView.as_view(), name='mahasiswa'),
-    path('pengajuan-judul', pengajuanJudulView.as_view(), name='pengajuan-judl'),
-    path('proposal', proposalView.as_view(), name='proposal'),
-    path('tugas-akhir', tugasAkhirView.as_view(), name='tugas-akhir'),
+    path('', views.dashboardView, name='index'),
+    path('pembimbing', views.pembimbingView, name='pembimbing'),
+    path('mahasiswa', views.mahasiswaView, name='mahasiswa'),
+    path('pengajuan-judul', views.pengajuanJudulView, name='pengajuan-judl'),
+    path('proposal', views.proposalView, name='proposal'),
+    path('tugas-akhir', views.tugasAkhirView, name='tugas-akhir'),
 ]
