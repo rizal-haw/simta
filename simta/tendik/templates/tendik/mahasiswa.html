@@ -4,54 +4,126 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Mahasiswa</h1>
+        <h1 class="mt-4">mahasiswa</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="mahasiswa.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Mahasiswa</li>
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-<!--                             
-            <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
+            <!-- <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Dosen Pembimbing
             </div> -->
 
-        </div>
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                DataTable Example
-            </div>
+            <div class="card-header d-flex justify-content-between card-header">
+                <div class="">
+                    <i class="fas fa-table me-1"></i>
+                   
+                        Data mahasiswa     
+                   
+                </div>
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Tambah data Mahasiswa</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="exampleInputNim" class="form-label">nama</label>
+                                  <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">Nim</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <select class="mb-3 form-select" aria-label="Default select example">
+                                    <option selected>program studi</option>
+                                    <option value="1">informatika</option>
+                                    <option value="2">teknik komputer</option>
+                                    <option value="3">bahasa inggris</option>
+                                  </select>
+                                <select class="mb-3 form-select" aria-label="Default select example">
+                                    <option selected>Fakultas</option>
+                                    <option value="1">informatika</option>
+                                    <option value="2">teknik komputer</option>
+                                    <option value="3">bahasa inggris</option>
+                                  </select>
+                                <div class="mb-2">
+                                  <label for="exampleInputnama" class="form-label">Kelas</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">semester</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                    
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 <div>
+                     <div>
+                         <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span><span>
+                            Tambah data
+                        </span></a>
+                     </div>
+                    
+                 </div>
             
+            </div>
             <div class="card-body">
                 <table id="datatablesSimple">
-                    <thead>
-                        <tr>
+                    <thead class="btn-success">
+                        <tr class="">
                             <th>Nama</th>
-                            <th>NIM</th>
-                            <th>PRODI</th>
-                            <th>FAKULTAS</th>
-                            <th>KELAS</th>
-                            <th>SEMESTER</th>
-                            <th>TAHUN MASUK</th>
-                            <th>AKSI</th>
+                            <th>Nim</th>
+                            <th>Program studi</th>
+                            <th>Fakultas</th>
+                            <th>Kelas</th>
+                            <th>Semester</th>
+                            <th>Tahun masuk</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Syamsul Alamsyam Slamet</td>
-                            <td>181111109</td>
-                            <td>Informatika</td>
-                            <td>FTI</td>
-                            <td>A</td>
-                            <td>11</td>
-                            <td>20001</td>
-                            <td>
-                                <div class="d-flex flex-column">
-                                    <button type="button" class="btn btn-warning mb-2">Edit</button>
-                                    <button type="button" class="btn btn-danger">Hapus</button>
-                                </div>
+                            <td>Yasin</td>
+                            <td>1234567</td>
+                            <td>infirmatika</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td>2010</td>
+                            <td class="d-flex justify-content">
+                                
+
+                                    <a href="" class="" >
+                                        <i class="far fa-edit mx-2" style="color:black"></i>
+                                    </a>
+                               
+
+                                    <a href="">
+                                        <i class="far fa-trash-alt " style="color:black"></i>
+                                    </a>
+                                
+
+                                   
                             </td>
                         </tr>
                     </tbody>

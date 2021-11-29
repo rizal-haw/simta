@@ -9,17 +9,87 @@
             <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-header">
+            <!-- <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Data Dosen Pembimbing
+            </div> -->
+
+            <div class="card-header d-flex justify-content-between card-header">
+                <div class="">
+                    <i class="fas fa-table me-1"></i>
+                   
+                        proposal     
+                   
+                </div>
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Tambah data pembimbing</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="exampleInputNim" class="form-label">nama</label>
+                                  <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">Nip</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">NIDN</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">NPWP</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputnama" class="form-label">NO.HP</label>
+                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  
+                                </div>
+                                <select class="mb-3 form-select" aria-label="Default select example">
+                                    <option selected>program studi</option>
+                                    <option value="1">informatika</option>
+                                    <option value="2">teknik komputer</option>
+                                    <option value="3">bahasa inggris</option>
+                                  </select>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 <div>
+                     <div>
+                         <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span><span>
+                            Tambah data
+                        </span></a>
+                     </div>
+                    
+                 </div>
+            
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
-                    <thead>
-                        <tr>
+                    <thead class="btn-success">
+                        <tr class="">
                             <th>Nama</th>
                             <th>NIP</th>
                             <th>NIDN</th>
+                            <th>NPWP</th>
                             <th>NO.HP</th>
                             <th>Program Studi</th>
                             <th>Aksi</th>
@@ -27,12 +97,27 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Nama</td>
-                            <td>NIP</td>
-                            <td>NIDN</td>
-                            <td>NO.HP</td>
-                            <td>Program Studi</td>
-                            <td>Aksi</td>
+                            <td>Yasin</td>
+                            <td>1234567</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>6</td>
+                            <td>sastra ree</td>
+                            <td class="d-flex justify-content">
+                                
+
+                                    <a href="" class="" >
+                                        <i class="far fa-edit mx-2" style="color:black"></i>
+                                    </a>
+                               
+
+                                    <a href="">
+                                        <i class="far fa-trash-alt " style="color:black"></i>
+                                    </a>
+                                
+
+                                   
+                            </td>
                         </tr>
                     </tbody>
                 </table>
