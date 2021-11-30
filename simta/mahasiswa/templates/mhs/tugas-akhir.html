@@ -16,50 +16,42 @@
                 </div>
             </div>
             <div class="card">
-                <div class="d-flex justify-content-between card-header">
-                    <div>
-                        <h5 class="">Dosen pembimbing</h5>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="mx-2"><i class="fa fa-plus" aria-hidden="true"></i></span><span>pilih dosen pembimbing</span></button>
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel"> pilih pembimbing</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="dropdown d-grid gap-2 ">
-                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                          pilih pembimbing 1
-                                        </button> -->
-                                        <select class="mb-3 form-select" aria-label="Default select example">
-                                            <option selected>Pembimbing 1</option>
-                                            <option value="1">Rizal</option>
-                                            <option value="2">Yasin</option>
-                                            <option value="3">Venna</option>
-                                          </select>
-                                        <select class="mb-3 form-select" aria-label="Default select example">
-                                            <option selected>Pembimbing 2</option>
-                                            <option value="1">Rizal</option>
-                                            <option value="2">Yasin</option>
-                                            <option value="3">Venna</option>
-                                          </select>
-                                      </div>
-                                      
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="button" class="btn btn-primary">Pilih</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
+                
+
                 <div class="card-body">
-                    
+                    <form>
+                        <fieldset disabled>
+                          <legend>Tugas akhir</legend>
+                          <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">nim</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="12345678">
+                          </div>
+                          <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">1234567</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                          </div>
+                          <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">1234567</label>
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                          </div>
+                          <div class="mb-3">
+                            <label for="disabledSelect" class="form-label">Disabled select menu</label>
+                            <select id="disabledSelect" class="form-select">
+                              <option>Disabled select</option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+                              <label class="form-check-label" for="disabledFieldsetCheck">
+                                Can't check this
+                              </label>
+                            </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </fieldset>
+                      </form>
                    
                 </div>
             </div>
