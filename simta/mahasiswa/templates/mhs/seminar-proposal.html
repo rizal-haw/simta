@@ -20,37 +20,60 @@
     </div>
     <div class="modal-body">
     <form>
-        <div class="mb-3">
-          <label for="exampleInputNim" class="form-label">Nim</label>
-          <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
-          
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputnama" class="form-label">nama</label>
-          <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
-          
-        </div>
-        <select class="mb-3 form-select" aria-label="Default select example">
-            <option selected>Pembimbing 1</option>
-            <option value="1">Rizal</option>
-            <option value="2">Yasin</option>
-            <option value="3">Venna</option>
-        </select>
-        <select class="mb-3 form-select" aria-label="Default select example">
-            <option selected>Pembimbing 2</option>
-            <option value="1">Rizal</option>
-            <option value="2">Yasin</option>
-            <option value="3">Venna</option>
-        </select>
-        <div class="mb-3">
-            <div class="mb-3">
-              <label for="exampleInputnama" class="form-label">judul</label>
-              <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
-              
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Nama</label>
+                <input type="text" id="disabledTextInput" class="form-control " placeholder="Nama">
             </div>
-            <label for="formFile" class="form-label">upload file</label>
-            <input class="form-control" type="file" id="formFile">
         </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">NIM</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="Nim">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Fakultas</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="fakultas">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Prodi</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="prodi">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Pembimbing 1</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbin 1">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Pembimbing 2</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbing 2">
+            </div>
+        </div>
+            <hr>
+        
+        <div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Judul</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul proposal">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Unggah file</label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+          </div>
+        <div class="">
+            <label for="message-text" class="col-form-label">Abstrak</label>
+            <textarea class="form-control" id="message-text"></textarea>
+        </div>
+        
+       
 
     </form>
     </div>

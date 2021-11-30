@@ -36,3 +36,8 @@ def seminarproposalViewMhs(request):
 
 def sidangskripsiViewMhs(request):
     return render(request, 'mhs/sidang-skripsi.html')
+
+def bukupanduanViewMhs(request):
+    return render(request, 'mhs/buku-panduan.html')
+
+

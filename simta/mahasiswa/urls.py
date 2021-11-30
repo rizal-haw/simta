@@ -10,4 +10,6 @@ urlpatterns = [
     path('ta', views.TAViewMhs, name='ta'),
     path('seminar-proposal',views.seminarproposalViewMhs, name='seminarproposal'),
     path('sidang-skripsi',views.sidangskripsiViewMhs, name='sidangskripsi'),
+    path('buku-panduan',views.bukupanduanViewMhs, name='bukupanduan'),
+
 ]
