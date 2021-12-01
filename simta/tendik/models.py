@@ -3,7 +3,7 @@ from django.db.models.base import Model
 from django.db.models.fields import IntegerField
 
 
-class Mahasiswa(models.Model):
+class MahasiswaModel(models.Model):
     nama = models.CharField(max_length=50)
     nim = models.IntegerField()
     prodi = models.CharField(max_length=20)

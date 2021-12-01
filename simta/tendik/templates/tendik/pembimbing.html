@@ -9,10 +9,10 @@
             <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-            <!-- <div class="card-header">
+            <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Data Dosen Pembimbing
-            </div> -->
+            </div>
 
             <div class="card-header d-flex justify-content-between card-header">
                 <div class="">
@@ -30,14 +30,15 @@
                         </div>
                         <div class="modal-body">
                             <form>
+                            {% csrf_token %}
                                 <div class="mb-3">
                                   <label for="exampleInputNim" class="form-label">nama</label>
-                                  <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  <input name="nama" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">Nip</label>
-                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="nip" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
