@@ -8,6 +8,7 @@ def dashboardViewMhs(request):
 
 def pembimbingViewMhs(request):
     return render(request, 'mhs/pembimbing.html')
+    
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
@@ -25,6 +26,21 @@ def pengajuanJudulViewMhs(request):
 def proposalViewMhs(request):
     return render(request, 'mhs/proposal.html')
 
+
 def TAViewMhs(request):
     return render(request, 'mhs/tugas-akhir.html')
+
+def seminarproposalViewMhs(request):
+    return render(request, 'mhs/seminar-proposal.html')
+
+
+def sidangskripsiViewMhs(request):
+    return render(request, 'mhs/sidang-skripsi.html')
+
+def bukupanduanViewMhs(request):
+    return render(request, 'mhs/buku-panduan.html')
+
+def formulirViewMhs(request):
+    return render(request, 'mhs/formulir.html')
+
 

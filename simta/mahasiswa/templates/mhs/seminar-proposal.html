@@ -1,0 +1,85 @@
+{% extends 'main-mhs.html' %}
+
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Seminar skripsi</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">seminar skripsi</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body btn-white">
+            <var>
+
+                silakan mengisi data terlebih dahulu.
+            </var> 
+
+            <a target="_blank" href="https://datatables.net/">info</a>
+            
+        </div> 
+    </div>
+    <div class="modal-body">
+    <form>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Nama</label>
+                <input type="text" id="disabledTextInput" class="form-control " placeholder="Nama">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">NIM</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="Nim">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Fakultas</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="fakultas">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Prodi</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="prodi">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Pembimbing 1</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbin 1">
+            </div>
+        </div>
+        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+            <div class="mx-3">
+                <label for="disabledTextInput" class="form-label">Pembimbing 2</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbing 2">
+            </div>
+        </div>
+            <hr>
+        
+        <div>
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">Judul</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul proposal">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Unggah file</label>
+            <input class="form-control" type="file" id="formFileMultiple" multiple>
+          </div>
+        <div class="">
+            <label for="message-text" class="col-form-label">Abstrak</label>
+            <textarea class="form-control" id="message-text"></textarea>
+        </div>
+        
+       
+
+    </form>
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+    </div>
+</div>
+{%endblock%}

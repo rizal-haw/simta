@@ -9,4 +9,5 @@ urlpatterns = [
     path('pengajuan-judul', views.pengajuanJudulView, name='pengajuan-judl'),
     path('proposal', views.proposalView, name='proposal'),
     path('tugas-akhir', views.tugasAkhirView, name='tugas-akhir'),
+    
 ]
