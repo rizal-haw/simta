@@ -28,3 +28,9 @@ def proposalView(request):
 
 def tugasAkhirView(request):
     return render(request, 'tendik/tugas-akhir.html')
+
+def kelolaBimbinganMahasiswaView(request):
+    return render(request, 'tendik/kelola-bimbingan-mahasiswa.html')
+
+def kelolaBimbinganDosenView(request):
+    return render(request, 'tendik/kelola-bimbingan-dosen.html')
