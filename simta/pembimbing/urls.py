@@ -11,4 +11,6 @@ urlpatterns = [
     path('permintaan-bimbingan', views.permintaanBimbinganViewPembimbing, name='Permintaan-bimbingan'),
     path('bimbingan-proposal', views.bimbinganProposalProposalViewPembimbing, name='bimbingan-proposal'),
     path('bimbingan-ta', views.bimbinganTAViewPembimbing, name='bimbingan-ta'),
+    path('jadwal', views.jadwalTAViewPembimbing, name='jadwal'),
+    path('panduan', views.panduanTAViewPembimbing, name='panduan'),
 ]

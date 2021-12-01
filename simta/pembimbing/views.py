@@ -25,3 +25,9 @@ def bimbinganProposalProposalViewPembimbing(request):
 
 def bimbinganTAViewPembimbing(request):
     return render(request, 'pembimbing/bimbingan-ta.html')
+
+def jadwalTAViewPembimbing(request):
+    return render(request, 'pembimbing/jadwal.html')
+
+def panduanTAViewPembimbing(request):
+    return render(request, 'pembimbing/panduan.html')

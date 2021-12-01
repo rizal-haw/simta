@@ -9,10 +9,10 @@
             <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-            <!-- <div class="card-header">
+            <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Data Dosen Pembimbing
-            </div> -->
+            </div>
 
             <div class="card-header d-flex justify-content-between card-header">
                 <div class="">
@@ -30,14 +30,15 @@
                         </div>
                         <div class="modal-body">
                             <form>
+                            {% csrf_token %}
                                 <div class="mb-3">
                                   <label for="exampleInputNim" class="form-label">nama</label>
-                                  <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  <input name="nama" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">Nip</label>
-                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="nip" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
@@ -82,28 +83,28 @@
                  </div>
             
             </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
+            <div class="table-responsive">
+                <table class="table table-bordered">
                     <thead style="background-color: #198754">
                         <tr>
-                            <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIP</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue;">NIDN</th>
-                            <th style="width: 13%; text-align: center; color: aliceblue">NPWP</th>
-                            <th style="width: 13%; text-align: center; color: aliceblue">NO.hp</th>
-                            <th style="width: 11%; text-align: center; color: aliceblue">Program Studi</th>
-                            <th style="width: 5%;text-align: center; color: aliceblue">Aksi</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue;">NIDN</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">NPWP</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">NO.HP</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">PROGRAM STUDI</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                    
                     <tbody>
                         <tr>
-                            <td>Yasin</td>
-                            <td>1234567</td>
-                            <td>0</td>
-                            <td>8</td>
-                            <td>6</td>
-                            <td>sastra ree</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
                             <td class="d-flex justify-content">
                                 
 
