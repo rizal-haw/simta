@@ -40,4 +40,7 @@ def sidangskripsiViewMhs(request):
 def bukupanduanViewMhs(request):
     return render(request, 'mhs/buku-panduan.html')
 
+def formulirViewMhs(request):
+    return render(request, 'mhs/formulir.html')
+
 
