@@ -22,6 +22,16 @@
                         Data mahasiswa     
                    
                 </div>
+                <form method="POST" enctype="multipart/form-data">
+ 
+                    <!-- Security token -->
+                    {% csrf_token %}
+                 
+                    <!-- Using the formset -->
+                    {{ form }}
+                     
+                    <input type="submit" value="Submit">
+                </form>
                 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
@@ -30,24 +40,25 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form method="post" action="">
+                            {% csrf_token%}
                                 <div class="mb-3">
                                   <label for="exampleInputNim" class="form-label">nama</label>
-                                  <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  <input name="nama" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">Nim</label>
-                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="nim" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
-                                <select class="mb-3 form-select" aria-label="Default select example">
+                                <select name="prodi" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>program studi</option>
                                     <option value="1">informatika</option>
                                     <option value="2">teknik komputer</option>
                                     <option value="3">bahasa inggris</option>
                                   </select>
-                                <select class="mb-3 form-select" aria-label="Default select example">
+                                <select name="fakultas" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>Fakultas</option>
                                     <option value="1">informatika</option>
                                     <option value="2">teknik komputer</option>
@@ -55,12 +66,12 @@
                                   </select>
                                 <div class="mb-2">
                                   <label for="exampleInputnama" class="form-label">Kelas</label>
-                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="kelas" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">semester</label>
-                                  <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="semester" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
@@ -91,6 +102,7 @@
                 <table id="datatablesSimple">
                     <thead style="background-color: #198754">
                         <tr>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
                             <th style="width: 20%; text-align: center; color: aliceblue;">Program studi</th>
@@ -103,14 +115,16 @@
                     </thead>
                   
                     <tbody>
+                        {% for i in tabel_mhs  %}
                         <tr>
-                            <td>Yasin</td>
-                            <td>1234567</td>
-                            <td>infirmatika</td>
-                            <td>0</td>
-                            <td>8</td>
-                            <td>6</td>
-                            <td>2010</td>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.nama}}</td>
+                            <td>{{i.nim}}</td>
+                            <td>{{i.prodi}}</td>
+                            <td>{{i.fakultas}}</td>
+                            <td>{{i.kelas}}</td>
+                            <td>{{i.semester}}</td>
+                            <td>{{i.tahun_masuk}}</td>
                             <td class="d-flex justify-content">
                                 
 
@@ -127,6 +141,7 @@
                                    
                             </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
