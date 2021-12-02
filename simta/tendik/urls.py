@@ -4,7 +4,10 @@ from . import views
 
 urlpatterns = [
     path('', views.dashboardView, name='index'),
+    # Laman Pembimbing
     path('pembimbing', views.pembimbingView, name='pembimbing'),
+    path('pembimbing/delete/<id>', views.pembimbingHapus, name='pembibmbing-delete'),
+    # -------------------------------------------------------
     # Laman Mahasiswa
     path('mahasiswa', views.mahasiswaView, name='mahasiswa'),
     path('mahasiswa/delete/<id>', views.mahasiswaHapus, name='mahasiswa'),

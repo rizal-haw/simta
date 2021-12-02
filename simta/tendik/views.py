@@ -7,8 +7,31 @@ from .forms import MahasiswaForm
 def dashboardView(request):
     return render(request, 'tendik/index.html')
 
+# ----------------------Untuk Halaman Pembimbing-------------------------------------------------
+
+# Menampilkan data inputan
+
 def pembimbingView(request):
-    return render(request, 'tendik/pembimbing.html')
+    if request.POST:
+        nama = request.POST['nama']
+        nip = request.POST['nip']
+        nidn = request.POST['nidn']
+        npwp = request.POST['npwp']
+        hp = request.POST['hp']
+        prodi = request.POST['prodi']
+        models.PembimbingModel.objects.create(nama=nama, nip=nip, nidn=nidn, npwp=npwp, hp=hp, prodi=prodi)
+    pembibmbing_table = models.PembimbingModel.objects.all()
+    return render(request, 'tendik/pembimbing.html', {
+        'pemb_table': pembibmbing_table
+    })
+
+# Hapus
+
+def pembimbingHapus(request, id):
+    models.PembimbingModel.objects.filter(pk =id).delete()
+    return redirect('/tendik/pembimbing')
+
+# ------------------------------------------------------------------------------
 
 # ----------------------Untuk Halaman Mahasiswa---------------------------------
 
@@ -21,7 +44,8 @@ def mahasiswaView(request):
         fakultas = request.POST['fakultas']
         kelas = request.POST['kelas']
         semester = request.POST['semester']
-        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, kelas=kelas, semester=semester)
+        tahun_masuk = request.POST['tahun_masuk']
+        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, kelas=kelas, semester=semester, tahun_masuk=tahun_masuk)
         print(nim)
         
     mhs_table = models.MahasiswaModel.objects.all()
