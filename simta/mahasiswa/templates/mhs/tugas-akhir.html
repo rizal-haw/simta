@@ -3,59 +3,162 @@
 {% block content %}
 <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">pembimbing</h1>
+            <h1 class="mt-4">Tugas Akhir</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active">Pembimbing</li>
+                <li class="breadcrumb-item active">Tugas Akhir</li>
             </ol>
             <div class="card mb-4">
-                <div class="card-body">
-                        <var></var>
+                <div class="card-body " >
+                    <var>
+
+                        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                    </var> 
                     <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
                     .
                 </div>
             </div>
-            <div class="card">
-                
-                
-
-                <div class="card-body">
-                    <form>
-                        <fieldset disabled>
-                          <legend>Tugas akhir</legend>
-                          <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">nim</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="12345678">
-                          </div>
-                          <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">1234567</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                          </div>
-                          <div class="mb-3">
-                            <label for="disabledTextInput" class="form-label">1234567</label>
-                            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                          </div>
-                          <div class="mb-3">
-                            <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                            <select id="disabledSelect" class="form-select">
-                              <option>Disabled select</option>
-                            </select>
-                          </div>
-                          <div class="mb-3">
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                              <label class="form-check-label" for="disabledFieldsetCheck">
-                                Can't check this
-                              </label>
+            <div class="card mb-4 ">
+                <div class="card-header d-flex justify-content-between card-header">
+                    <div>
+                        <i class="fas fa-table me-1"></i>
+                        Tugas Akhir     
+                    </div>
+                    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalToggleLabel">silakan isi data terlebih dahulu</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                      <label for="exampleInputNim" class="form-label">NIM</label>
+                                      <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputnama" class="form-label">NAMA</label>
+                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputnama" class="form-label">JUDUL</label>
+                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      
+                                    </div>
+                                    
+                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                      <option selected>Pembimbing 1</option>
+                                      <option value="1">Rizal</option>
+                                      <option value="2">Yasin</option>
+                                      <option value="3">Venna</option>
+                                    </select>
+                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                      <option selected>Pembimbing 2</option>
+                                      <option value="1">Rizal</option>
+                                      <option value="2">Yasin</option>
+                                      <option value="3">Venna</option>
+                                    </select>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">UNGGAH TUGAS AKHIR</label>
+                                        <input class="form-control" type="file" id="formFile">
+                                      </div>
+                                  </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </fieldset>
-                      </form>
+                        </div>
+                      </div>
+                     <div>
+                         <div>
+                             <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </span><span>
+                                Tambah data
+                            </span></a>
+                         </div>
+                        
+                     </div>
+                
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                      <thead style="background-color: #198754">
+                            <tr>
+                                <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
+                                <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
+                                <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
+                                <th style="width: 20%; text-align: center; color: aliceblue">JUDUL</th>
+                                <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 1</th>
+                                <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 2</th>
+                                <th style="width: 7%; text-align: center; color: aliceblue">TUGAS AKHIR</th>
+                                <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>yasin</td>
+                                <td>Nim</td>
+                                <td>vena</td>
+                                <td>vena</td>
+                                <td>vena</td>
+                                <td class="text-center">
+                                    <label class="btn btn-outline-transparant " for="btncheck1"><span ><i class="fas fa-file-download text-center"></i></label>
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-between ">
+            
+                                        <div class="mx-3" >
+        
+                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModal" role="button"><span>
+                                                   <i class="" aria-hidden="true"></i>
+                                            </span><span>
+                                            Detail
+                                            </span></a>
+                                        </div>
+                                    </div>                                 
+                                </td>
+                            </tr>
+                          </tbody>
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form>
+                                    <fieldset disabled>
+                                      <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">Status</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Feedback</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                      </div>
+                                    </fieldset>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </table>
+                </div>
+                <div>
+
                    
                 </div>
+                    
             </div>
         </div>
     </main>
-    
 {% endblock %}
