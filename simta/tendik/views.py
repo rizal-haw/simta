@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
-from .models import MahasiswaModel
 from .forms import MahasiswaForm
 
 def dashboardView(request):
@@ -11,24 +10,31 @@ def dashboardView(request):
 def pembimbingView(request):
     return render(request, 'tendik/pembimbing.html')
 
+# ----------------------Untuk Halaman Mahasiswa---------------------------------
 
-# -------Operasi Laman Mahasiswa-------------------------
-
+# Tampilkan Data
 def mahasiswaView(request):
-    context ={}
+    if request.POST:
+        nama = request.POST['nama']
+        nim = request.POST['nim']
+        prodi = request.POST['prodi']
+        fakultas = request.POST['fakultas']
+        kelas = request.POST['kelas']
+        semester = request.POST['semester']
+        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, kelas=kelas, semester=semester)
+        print(nim)
+        
+    mhs_table = models.MahasiswaModel.objects.all()
+    return render(request, 'tendik/mahasiswa.html', {
+        'tabel_mhs': mhs_table
+    })
 
-    form = MahasiswaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context['form']= form
-    return render(request, 'tendik/mahasiswa.html', context)
+    # Hapus Data
+def mahasiswaHapus(request, id):
+    models.MahasiswaModel.objects.filter(pk=id).delete()
+    return redirect('/tendik/mahasiswa')
 
-def readmahasiswa(request):
-    context ={}
-
-    context['tabel_mhs']= MahasiswaModel.objects.all()
-
-    return render(request, 'tendik/mahasiswa.html', context)
+# ------------------------------------------------------------
 
 def pengajuanJudulView(request):
     return render(request, 'tendik/pengajuanjudul.html')
@@ -38,9 +44,3 @@ def proposalView(request):
 
 def tugasAkhirView(request):
     return render(request, 'tendik/tugas-akhir.html')
-
-def kelolaBimbinganMahasiswaView(request):
-    return render(request, 'tendik/kelola-bimbingan-mahasiswa.html')
-
-def kelolaBimbinganDosenView(request):
-    return render(request, 'tendik/kelola-bimbingan-dosen.html')
