@@ -32,40 +32,46 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form action="" method="post">
+                                    {% csrf_token %}
                                     <div class="mb-3">
-                                      <label for="exampleInputNim" class="form-label">Nim</label>
-                                      <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                      <label for="exampleInputNim" class="form-label">Nama</label>
+                                      <input  name="nama" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                       
                                     </div>
                                     <div class="mb-3">
-                                      <label for="exampleInputnama" class="form-label">nama</label>
-                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      <label for="exampleInputnama" class="form-label">Nim</label>
+                                      <input name="nim" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                       
                                     </div>
+                                    <div class="mb-3">
+                                      <label for="exampleInputnama" class="form-label">Judul</label>
+                                      <input name="judul" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      
+                                    </div>
+                                    <select name="pembimbing_1" class="mb-3 form-select" aria-label="Default select example">
+                                      <option selected>Pembimbing 1</option>
+                                      <option value="1">Rizal</option>
+                                      <option value="2">Yasin</option>
+                                      <option value="3">Venna</option>
+                                    </select>
+                                  <select name="pembimbing_2" class="mb-3 form-select" aria-label="Default select example">
+                                      <option selected>Pembimbing 2</option>
+                                      <option value="1">Rizal</option>
+                                      <option value="2">Yasin</option>
+                                      <option value="3">Venna</option>
+                                    </select>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Unggah Proposal</label>
                                         <input class="form-control" type="file" id="formFile">
                                       </div>
 
-                                      <select class="mb-3 form-select" aria-label="Default select example">
-                                        <option selected>Pembimbing 1</option>
-                                        <option value="1">Rizal</option>
-                                        <option value="2">Yasin</option>
-                                        <option value="3">Venna</option>
-                                      </select>
-                                    <select class="mb-3 form-select" aria-label="Default select example">
-                                        <option selected>Pembimbing 2</option>
-                                        <option value="1">Rizal</option>
-                                        <option value="2">Yasin</option>
-                                        <option value="3">Venna</option>
-                                      </select>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
-                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
-                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                                      <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                                    </div>
+                                  </form>
                           </div>
                         </div>
                       </div>
@@ -81,41 +87,70 @@
                      </div>
                 
                 </div>
-                <div class="card-body">
-                    <table id="datatablesSimple">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
                         <thead style="background-color: #198754">
                             <tr>
-                                <th style="width: 7%; text-align: center; color: aliceblue;">No</th>
+                                <th style="width: 3%; text-align: center; color: aliceblue;">No</th>
                                 <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
-                                <th style="width: 20%; text-align: center; color: aliceblue;">NIM</th>
-                                <th style="width: 13%; text-align: center; color: aliceblue">Pembimbing 1</th>
-                                <th style="width: 13%; text-align: center; color: aliceblue">Pembimbing 2</th>
+                                <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
+                                <th style="width: 20%; text-align: center; color: aliceblue;">Judul</th>
+                                <th style="width: 10%; text-align: center; color: aliceblue">Pembimbing 1</th>
+                                <th style="width: 10%; text-align: center; color: aliceblue">Pembimbing 2</th>
                                 <th style="width: 5%;text-align: center; color: aliceblue">Proposal</th>
+                                <th style="width: 5%;text-align: center; color: aliceblue">Aksi</th>
                             </tr>
                         </thead> 
-                        <!-- <thead style='background-color:#157347'>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Nim</th>
-                                <th>Pembimbing 1</th>
-                                <th>Pembimbing 2</th>
-                                <th>Proposal</th>
-                            </tr>
-                        </thead> -->
                         <tbody>
+                          {%for i in proposal%}
                             <tr>
-                                <td>1</td>
-                                <td>yasin</td>
-                                <td>Nim</td>
-                                <td>vena</td>
-                                <td>vena</td>
-                                <td>
-                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{i.nama}}</td>
+                                <td>{{i.nim}}</td>
+                                <td>{{i.judul}}</td>
+                                <td>{{i.pembimbing_1}}</td>
+                                <td>{{i.pembimbing_2}}</td>
+                                <td class="text-center">
+                                    <label class="btn btn-outline-transparant " for="btncheck1"><span ><i class="fas fa-file-download text-center"></i></label>
                                 </td>
-                            </tr>
+                                <td>
+                                    <div class="d-flex justify-content-between ">
+            
+                                        <div class="mx-3" >
+        
+                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModal" role="button"><span>
+                                                   <i class="" aria-hidden="true"></i>
+                                            </span><span>
+                                            Detail
+                                            </span></a>
+                                        </div>
+                                    </div>                                 
+                                </td>
+                              </tr>
+                              {%endfor%}
                         </tbody>
                     </table>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <fieldset disabled>
+                                  <div class="mb-3">
+                                    <label for="disabledTextInput" class="form-label">Status</label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Feedback</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                  </div>
+                                </fieldset>
+                                </form>
                 </div>
                 <div>
 
