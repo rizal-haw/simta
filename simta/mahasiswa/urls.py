@@ -12,6 +12,4 @@ urlpatterns = [
     path('sidang-skripsi',views.sidangskripsiViewMhs, name='sidangskripsi'),
     path('buku-panduan',views.bukupanduanViewMhs, name='bukupanduan'),
     path('formulir',views.formulirViewMhs, name='formulir'),
-
-
 ]

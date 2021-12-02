@@ -9,16 +9,16 @@
             <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-header">
+            <!-- <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Data Dosen Pembimbing
-            </div>
+            </div> -->
 
             <div class="card-header d-flex justify-content-between card-header">
                 <div class="">
                     <i class="fas fa-table me-1"></i>
                    
-                        proposal     
+                        Data dosen pembimbing     
                    
                 </div>
                 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -29,7 +29,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form method="post" action="">
                             {% csrf_token %}
                                 <div class="mb-3">
                                   <label for="exampleInputNim" class="form-label">nama</label>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
-                            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                            <button class="btn btn-primary" type="submit">submit</button>
                         </div>
                       </div>
                     </div>

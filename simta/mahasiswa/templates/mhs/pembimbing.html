@@ -34,27 +34,34 @@
 
                             <div class="modal-body">
                                 <form action="" method="post">
-
+                                    {% csrf_token%}
                                     <div class="dropdown d-grid gap-2 ">
+<<<<<<< HEAD
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            pilih pembimbing 1
+                                        </button> -->
+                                    <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
+=======
                                     <select class="mb-3 form-select" aria-label="Default select example">
+>>>>>>> 0350365d4a6dc74a14e51c4f2f59f61e84d3a24b
                                         <option selected>Pembimbing 1</option>
-                                        <option value="1">Rizal</option>
-                                        <option value="2">Yasin</option>
-                                        <option value="3">Venna</option>
+                                        <option value="Rizal">Rizal</option>
+                                        <option value="yasin">Yasin</option>
+                                        <option value="vena">Venna</option>
                                     </select>
-                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                    <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_2" >
                                         <option selected>Pembimbing 2</option>
-                                        <option value="1">Rizal</option>
-                                        <option value="2">Yasin</option>
-                                        <option value="3">Venna</option>
+                                        <option value="Rizal">Rizal</option>
+                                        <option value="Yasin">Yasin</option>
+                                        <option value="Vena">Venna</option>
                                       </select>
                                     </div>
                                     
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-primary">Pilih</button>
                                 </form>
-                            <button type="button" class="btn btn-primary">Pilih</button>
                             </div>
                         </div>
                         </div>
@@ -62,12 +69,16 @@
                 </div>
             </div>
             <div class="card-body">
-                
                 <h5 class="card-title">pembimbing 1</h5>
-                <p class="card-text">-</p>
-                <h5 class="card-title">pembimbing 2</h5>
-              <p class="card-text">-</p>
-              
+            {%for i in pembimbing%}
+                <p class="card-text">{{i.pembimbing_1}}</p>
+                
+            {%endfor%}
+            <h5 class="card-title">pembimbing 2</h5>
+            {%for i in pembimbing%}
+                
+                <p class="card-text">{{i.pembimbing_2}}</p>
+            {%endfor%}
             </div>
         </div>
     </div>
