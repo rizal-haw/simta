@@ -7,18 +7,28 @@ def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
 def pembimbingViewMhs(request):
-    return render(request, 'mhs/pembimbing.html')
+    if request.POST:
+
+        pembimbing_1 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_2']
+        models.pembimbing.objects.create(
+            pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
+        print(pembimbing_1)
+        print(pembimbing_2)
+    data_pembimbing =  models.pembimbing.objects.all()
+    return render(request, 'mhs/pembimbing.html', {
+        'pembimbing': data_pembimbing
+    })
     
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
         judul_1 = request.POST['judul_1']
         judul_2 = request.POST['judul_2']
-        print(judul_1)
-        print(judul_2)
         models.Judul.objects.create(
             judul_1=judul_1, judul_2=judul_2)
     data_judul = models.Judul.objects.all()
+    print(data_judul)
     return render(request, 'mhs/pengajuan-judul.html', {
         'judul': data_judul
     })
