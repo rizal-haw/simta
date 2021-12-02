@@ -34,8 +34,19 @@ def pengajuanJudulViewMhs(request):
     })
 
 def proposalViewMhs(request):
-    return render(request, 'mhs/proposal.html')
-
+    if request.POST:
+        nama = request.POST['nama']
+        nim = request.POST['nim']
+        judul = request.POST['judul']
+        pembimbing_1 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_1']
+        models.proposal.objects.create(
+         nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
+         
+    data_proposal = models.proposal.objects.all()
+    print(data_proposal)
+    return render(request, 'mhs/proposal.html',{
+    'proposal': data_proposal })
 
 def TAViewMhs(request):
     return render(request, 'mhs/tugas-akhir.html')
