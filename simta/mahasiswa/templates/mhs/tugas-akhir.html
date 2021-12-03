@@ -32,30 +32,31 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form method="post">
+                                  {% csrf_token %}
                                     <div class="mb-3">
                                       <label for="exampleInputNim" class="form-label">NIM</label>
-                                      <input type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                      <input name="nim" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                       
                                     </div>
                                     <div class="mb-3">
                                       <label for="exampleInputnama" class="form-label">NAMA</label>
-                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      <input name="nama" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                       
                                     </div>
                                     <div class="mb-3">
                                       <label for="exampleInputnama" class="form-label">JUDUL</label>
-                                      <input type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                      <input name="judul" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                       
                                     </div>
                                     
-                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                    <select name="pembimbing_1" class="mb-3 form-select" aria-label="Default select example">
                                       <option selected>Pembimbing 1</option>
                                       <option value="1">Rizal</option>
                                       <option value="2">Yasin</option>
                                       <option value="3">Venna</option>
                                     </select>
-                                    <select class="mb-3 form-select" aria-label="Default select example">
+                                    <select name="pembimbing_2" class="mb-3 form-select" aria-label="Default select example">
                                       <option selected>Pembimbing 2</option>
                                       <option value="1">Rizal</option>
                                       <option value="2">Yasin</option>
@@ -65,18 +66,18 @@
                                         <label for="formFile" class="form-label">UNGGAH TUGAS AKHIR</label>
                                         <input class="form-control" type="file" id="formFile">
                                       </div>
+                                      <div class="modal-footer">
+                                          <button class="submit"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                                          <button class="submit"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                                      </div>
                                   </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
-                                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
                             </div>
                           </div>
                         </div>
                       </div>
                      <div>
                          <div>
-                             <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </span><span>
                                 Tambah data
@@ -101,13 +102,14 @@
                             </tr>
                         </thead> 
                         <tbody>
+                          {%for i in ta%}
                             <tr>
-                                <td>1</td>
-                                <td>yasin</td>
-                                <td>Nim</td>
-                                <td>vena</td>
-                                <td>vena</td>
-                                <td>vena</td>
+                              <td>{{forloop.counter}}</td>
+                              <td>{{i.nim}}</td>
+                              <td>{{i.nama}}</td>
+                              <td>{{i.judul}}</td>
+                              <td>{{i.pembimbing_1}}</td>
+                              <td>{{i.pembimbing_2}}</td>
                                 <td class="text-center">
                                     <label class="btn btn-outline-transparant " for="btncheck1"><span ><i class="fas fa-file-download text-center"></i></label>
                                 </td>
@@ -125,6 +127,7 @@
                                     </div>                                 
                                 </td>
                             </tr>
+                          {%endfor%}
                           </tbody>
                           <!-- Modal -->
                           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

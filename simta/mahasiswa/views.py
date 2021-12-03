@@ -49,7 +49,19 @@ def proposalViewMhs(request):
     'proposal': data_proposal })
 
 def TAViewMhs(request):
-    return render(request, 'mhs/tugas-akhir.html')
+    if request.POST:
+        nim = request.POST['nim']
+        nama = request.POST['nama']
+        judul = request.POST['judul']
+        pembimbing_1 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_1']
+        models.ta.objects.create(
+         nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
+         
+    data_ta = models.ta.objects.all()
+    print(data_ta)
+    return render(request, 'mhs/tugas-akhir.html', {
+    'ta': data_ta })
 
 def seminarproposalViewMhs(request):
     return render(request, 'mhs/seminar-proposal.html')
