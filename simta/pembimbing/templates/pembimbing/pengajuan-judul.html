@@ -69,40 +69,22 @@
                 <table class="table table-bordered">
                     <thead style="background-color: #198754">
                         <tr>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
                             <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL 1</th>
-                            <th style="width: 5%; text-align: center; color: aliceblue">AKSI</th>
                             <th style="width: 20%; text-align: center; color: aliceblue">JUDUL 2</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in data_judul %}
                         <tr>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>
-                                <div class="d-flex flex-column">
-            
-                                  <!-- <div class="mx-3" > -->
-    
-                                      <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
-                                             <i class="" aria-hidden="true"></i>
-                                      </span><span>
-                                      Approve
-                                      </span></a>
-                                  <!-- </div> -->
-                                  <div class="d-flex flex-column">
-                                      <a class="btn btn-danger mb-1" data-bs-toggle="modal" href="#exampleModal" type="button"><span>
-                                      <i class="" aria-hidden="true"></i>
-                                      </span><span>
-                                      Disapprove
-                                      </span></a>
-                                  </div>
-                                </div>
-                              </td>
-                            <td>wahma ravanna rafail</td>
+                            <td>{{forloop.counter}}</td>
+                            <td>Belum</td>
+                            <td>111</td>
+                            <td>{{i.judul_1}}</td>
+                            <td>{{i.judul_2}}</td>
                             <td>
                                 <div class="d-flex flex-column">
             
@@ -124,6 +106,7 @@
                                 </div>
                               </td>
                         </tr>
+                        {% endfor %}
                     </tfoot>
                     <tbody>
                     </tbody>
