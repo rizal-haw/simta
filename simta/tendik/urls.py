@@ -10,7 +10,8 @@ urlpatterns = [
     # -------------------------------------------------------
     # Laman Mahasiswa
     path('mahasiswa', views.mahasiswaView, name='mahasiswa'),
-    path('mahasiswa/delete/<id>', views.mahasiswaHapus, name='mahasiswa'),
+    path('mahasiswa/delete/<id>', views.mahasiswaHapus, name='mahasiswa-delete'),
+    path('mahasiswa/delete/<id>', views.mahasiswaUpdate, name='mahasiswa-update'),
     # ------------------------------------------------------
     path('pengajuan-judul', views.pengajuanJudulView, name='pengajuan-judl'),
     path('proposal', views.proposalView, name='proposal'),

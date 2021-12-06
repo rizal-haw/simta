@@ -17,6 +17,13 @@ class proposal(models.Model):
     judul = models.CharField(max_length=200)
     pembimbing_1 = models.CharField(max_length=20)
     pembimbing_2 = models.CharField(max_length=20)
+
+class ta (models.Model):
+    nim = models.IntegerField()
+    nama = models.CharField(max_length=50)
+    judul = models.CharField(max_length=200)
+    pembimbing_1 = models.CharField(max_length=20)
+    pembimbing_2 = models.CharField(max_length=20)
     
 
     

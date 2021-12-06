@@ -28,39 +28,39 @@
                             {% csrf_token%}
                                 <div class="mb-3">
                                   <label for="exampleInputNim" class="form-label">nama</label>
-                                  <input name="nama" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+                                  <input name="nama" value="{{tabel_mhs.nama}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">Nim</label>
-                                  <input name="nim" type="number" class="form-control">
+                                  <input name="nim" value="{{tabel_mhs.nim}}" type="number" class="form-control">
                                   
                                 </div>
                                 <select name="prodi" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>Program Studi</option>
-                                    <option value="1">Informatika</option>
-                                    <option value="2">Teknik Komputer</option>
-                                    <option value="3">Bahasa Inggris</option>
+                                    <option value="{{tabel_mhs.prodi}}">Informatika</option>
+                                    <option value="{{tabel_mhs.prodi}}">Teknik Komputer</option>
+                                    <option value="{{tabel_mhs.prodi}}">Bahasa Inggris</option>
                                   </select>
                                 <select name="fakultas" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>Fakultas</option>
-                                    <option value="1">FTI</option>
-                                    <option value="2">FIP</option>
-                                    <option value="3">FE</option>
+                                    <option value="{{tabel_mhs.fakultas}}">FTI</option>
+                                    <option value="{{tabel_mhs.fakultas}}">FIP</option>
+                                    <option value="{{tabel_mhs.fakultas}}">FE</option>
                                   </select>
                                 <div class="mb-2">
                                   <label for="exampleInputnama" class="form-label">Kelas</label>
-                                  <input name="kelas" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="kelas" value="{{tabel_mhs.kelas}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">semester</label>
-                                  <input name="semester" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="semester" value="{{tabel_mhs.semester}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">Tahun Masuk</label>
-                                  <input name="tahun_masuk" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+                                  <input name="tahun_masuk" value="{{tabel_mhs.tahun_masuk}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="modal-footer">
@@ -114,7 +114,7 @@
                             <td class="d-flex justify-content">
                                 
 
-                                    <a href="" class="" >
+                                    <a id="exampleModalToggleLabel" href="mahasiswa/update/{{i.id}}" class="" >
                                         <i class="far fa-edit mx-2" style="color:black"></i>
                                     </a>
                                     <a href="mahasiswa/delete/{{i.id}}">

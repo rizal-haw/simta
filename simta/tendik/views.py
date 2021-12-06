@@ -53,6 +53,23 @@ def mahasiswaView(request):
         'tabel_mhs': mhs_table
     })
 
+# Update
+def mahasiswaUpdate(request, id):
+    if request.POST:
+        models.MahasiswaModel.objects.filter(pk=id).first(
+            nama = request.POST['nama'],
+            nim = request.POST['nim'],
+            prodi = request.POST['prodi'],
+            fakultas = request.POST['fakultas'],
+            kelas = request.POST['kelas'],
+            semester = request.POST['semester'],
+            tahun_masuk = request.POST['tahun_masuk'],
+        )
+    mhs_update = models.MahasiswaModel.objects.filter(pk=id).first()
+    return render(request, 'tendik/mahasiswa', {
+        'mhs_update': mhs_update
+    })
+
     # Hapus Data
 def mahasiswaHapus(request, id):
     models.MahasiswaModel.objects.filter(pk=id).delete()
