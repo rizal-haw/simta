@@ -6,6 +6,8 @@ from . import models
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
+# ---------------------Halaman Pembibmbing-------------------------------------
+
 def pembimbingViewMhs(request):
     if request.POST:
 
@@ -19,7 +21,10 @@ def pembimbingViewMhs(request):
     return render(request, 'mhs/pembimbing.html', {
         'pembimbing': data_pembimbing
     })
-    
+
+# End Halaman Pembimbing----------------------------------------------
+
+# ----------------------------Halaman Pengajuan Judul----------------- 
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
@@ -32,6 +37,9 @@ def pengajuanJudulViewMhs(request):
     return render(request, 'mhs/pengajuan-judul.html', {
         'judul': data_judul
     })
+# ---------------------------------------------------------------
+
+# --------------------Halaman Proposal---------------------------
 
 def proposalViewMhs(request):
     if request.POST:
@@ -47,6 +55,10 @@ def proposalViewMhs(request):
     print(data_proposal)
     return render(request, 'mhs/proposal.html',{
     'proposal': data_proposal })
+
+# -------------------------------------------------------
+
+# ----------------------Halaman TA-----------------------
 
 def TAViewMhs(request):
     if request.POST:

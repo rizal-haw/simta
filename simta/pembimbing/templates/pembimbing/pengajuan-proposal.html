@@ -10,9 +10,7 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
+              ....
             </div>
         </div>
         <div class="card mb-4">
@@ -24,6 +22,7 @@
               <table class="table table-bordered">
                   <thead style="background-color: #198754">
                       <tr>
+                          <th style="width: 15%; text-align: center; color: aliceblue;">NO</th>
                           <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                           <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
                           <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL</th>
@@ -31,10 +30,12 @@
                       </tr>
                   </thead>
                   <tbody>
+                      {% for i in data_proposal %}
                       <tr>
-                          <td>wahma ravanna rafail</td>
-                          <td>wahma ravanna rafail</td>
-                          <td>wahma ravanna rafail</td>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.nama}}</td>
+                          <td>{{i.nim}}</td>
+                          <td>{{i.judul}}</td>
                           <td>
                             <div class="d-flex flex-column">
                               <button type="button" class="btn btn-primary mb-1">Approve</button>
@@ -42,6 +43,7 @@
                             </div>
                           </td>
                       </tr>
+                      {% endfor %}
                     </tbody>
                 </table>
             </div>
