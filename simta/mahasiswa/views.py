@@ -47,7 +47,7 @@ def proposalViewMhs(request):
         nim = request.POST['nim']
         judul = request.POST['judul']
         pembimbing_1 = request.POST['pembimbing_1']
-        pembimbing_2 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_2']
         models.proposal.objects.create(
          nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
          
@@ -66,7 +66,7 @@ def TAViewMhs(request):
         nama = request.POST['nama']
         judul = request.POST['judul']
         pembimbing_1 = request.POST['pembimbing_1']
-        pembimbing_2 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_2']
         models.ta.objects.create(
          nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
          
