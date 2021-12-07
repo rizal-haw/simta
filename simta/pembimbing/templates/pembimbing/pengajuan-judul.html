@@ -30,6 +30,58 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            Approve Judul :
+
+                            <br>
+                            <br>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  Judul 1
+                                </label>
+                                <br>
+                                {% for i in data_judul %}
+                                <td>{{i.judul_1}}</td>
+                                {% endfor %}
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  Judul 2
+                                </label>
+                                <br>
+                                {% for i in data_judul %}
+                                <td>{{i.judul_2}}</td>
+                                {% endfor %}
+                              </div>
+                            <hr>
+                            Disapprove Judul :
+                            
+                            <br>
+                            <br>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  Judul 1
+                                </label>
+                                <br>
+                                {% for i in data_judul %}
+                                <td>{{i.judul_1}}</td>
+                                {% endfor %}
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                  Judul 2
+                                </label>
+                                <br>
+                                {% for i in data_judul %}
+                                <td>{{i.judul_2}}</td>
+                                {% endfor %}
+                              </div>
+                              <hr>
                           <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Feedback</label>
@@ -50,14 +102,6 @@
                       <h5 class="modal-title" id="exampleModalToggleLabel">Masukkan Feedback</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                          <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Feedback</label>
-                          </div>
-                        </form>
-                    </div>
                     <div class="modal-footer">
                         <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
                         <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Submit</button>
@@ -69,7 +113,7 @@
                 <table class="table table-bordered">
                     <thead style="background-color: #198754">
                         <tr>
-                            <th style="width: 15%; text-align: center; color: aliceblue;">NO</th>
+                            <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
                             <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL 1</th>
@@ -93,18 +137,11 @@
                                       <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
                                              <i class="" aria-hidden="true"></i>
                                       </span><span>
-                                      Approve
+                                      Detail
                                       </span></a>
                                   <!-- </div> -->
-                                  <div class="d-flex flex-column">
-                                      <a class="btn btn-danger mb-1" data-bs-toggle="modal" href="#exampleModal" type="button"><span>
-                                      <i class="" aria-hidden="true"></i>
-                                      </span><span>
-                                      Disapprove
-                                      </span></a>
-                                  </div>
                                 </div>
-                              </td>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tfoot>
