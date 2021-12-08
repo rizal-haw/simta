@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
+from . import models
 
 def dashboardViewPembimbing(request):
     return render(request, 'pembimbing/index.html')
@@ -8,11 +9,21 @@ def dashboardViewPembimbing(request):
 def pembimbingViewPembimbing(request):
     return render(request, 'pembimbing/pembimbing.html')
 
+# ---------------Halaman Pengajuan Judul-----------------
+
 def pengajuanJudulViewPembimbing(request):
-    return render(request, 'pembimbing/pengajuan-judul.html')
+    data_judul = models.Judul.objects.all()
+    konteks = {'data_judul': data_judul}
+    return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+# -------end----------------------------------------------
+
+# -------Halaman Pengajuan Proposal------------------------
 
 def pengajuanProposalViewPembimbing(request):
-    return render(request, 'pembimbing/pengajuan-proposal.html')
+    data_proposal = models.proposal.objects.all()
+    konteks = {'data_proposal': data_proposal}
+    return render(request, 'pembimbing/pengajuan-proposal.html', konteks)
+# --------End-----------------------------------------------
 
 def pengajuanTAViewPembimbing(request):
     return render(request, 'pembimbing/pengajuan-ta.html')
