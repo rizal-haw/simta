@@ -1,4 +1,4 @@
-{% extends 'landing/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -9,12 +9,52 @@
         <div class="col-md-10 col-sm-12 text-center">
             <h1 class="display-2">Simta</h1>
             <p class="mt-3 lead">Simtem Monitoring Tugas Akhir</p>
-            <div class="d-flex justify-content-center mt-5">
-                <a href="tendik/" class="btn btn-light mr-2">Tendik</a>
+            <div class="d-flex justify-content-center mt-5 mx-1">
+                <a href="tendik/" class="btn btn-light mr-2" data-bs-toggle="modal" data-bs-target="#loginModal">Tendik</a>
                 <a href="mhs/" class="btn btn-light mr-2">Mahasiswa</a>
                 <a href="pembimbing/" class="btn btn-light mr-2">Dosen</a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="container py-5 h-20 modal-content">
+            <div class="row d-flex justify-content-center align-items-center h-20 modal-header">
+              <div class="">
+                <div class="card bg-white text-drak" style="border-radius: 2rem;">
+                  <div  class="card-body p-5 text-center">
+        
+                    <div class="mb-md-5 mt-md-4 pb-5">
+        
+                      <h2 class="fw-bold mb-0 text-uppercase">Simta</h2>
+                      <p class="text-drak-50 mb-10">silakan login !</p>
+        
+                      <div class="form-outline form-drak mb-0">
+                          <label class="form-label" for="typeEmailX">Email</label>
+                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                      </div>
+        
+                      <div class="form-outline form-drak mb-0">
+                          <label class="form-label" for="typePasswordX">Password</label>
+                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                      </div>
+        
+                      <p class="small mb-2 pb-lg-2"><a class="text-drak-50" href="#!">Forgot password?</a></p>
+        
+                      <button class=" btn-outline-drak px-2 btn-primary border-radius-3rem" type="submit">Login</button>              
+                       <div>
+                      <p class="mb-0">ape lu? <a href="#!" class="text-drak-50 fw-bold">ngerii rek</a></p>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!--  -->
 {% endblock content %}
