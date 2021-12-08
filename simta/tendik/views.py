@@ -16,10 +16,9 @@ def pembimbingView(request):
         nama = request.POST['nama']
         nip = request.POST['nip']
         nidn = request.POST['nidn']
-        npwp = request.POST['npwp']
         hp = request.POST['hp']
         prodi = request.POST['prodi']
-        models.PembimbingModel.objects.create(nama=nama, nip=nip, nidn=nidn, npwp=npwp, hp=hp, prodi=prodi)
+        models.PembimbingModel.objects.create(nama=nama, nip=nip, nidn=nidn, hp=hp, prodi=prodi)
     pembibmbing_table = models.PembimbingModel.objects.all()
     return render(request, 'tendik/pembimbing.html', {
         'pemb_table': pembibmbing_table
@@ -78,7 +77,9 @@ def mahasiswaHapus(request, id):
 # ------------------------------------------------------------
 
 def pengajuanJudulView(request):
-    return render(request, 'tendik/pengajuanjudul.html')
+    data_judul = models.Judul.objects.all()
+    konteks = {'data_judul' : data_judul}
+    return render(request, 'tendik/pengajuanjudul.html', konteks)
 
 def proposalView(request):
     return render(request, 'tendik/proposal.html')

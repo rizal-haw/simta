@@ -27,7 +27,7 @@
                             <form method="post" action="">
                             {% csrf_token%}
                                 <div class="mb-3">
-                                  <label for="exampleInputNim" class="form-label">nama</label>
+                                  <label for="exampleInputNim" class="form-label">Nama</label>
                                   <input name="nama" value="{{tabel_mhs.nama}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
@@ -38,15 +38,15 @@
                                 </div>
                                 <select name="prodi" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>Program Studi</option>
-                                    <option value="{{tabel_mhs.prodi}}">Informatika</option>
-                                    <option value="{{tabel_mhs.prodi}}">Teknik Komputer</option>
-                                    <option value="{{tabel_mhs.prodi}}">Bahasa Inggris</option>
+                                    <option value="Informatika">Informatika</option>
+                                    <option value="Teknik Komputer">Teknik Komputer</option>
+                                    <option value="Bahasa Inggris">Bahasa Inggris</option>
                                   </select>
                                 <select name="fakultas" class="mb-3 form-select" aria-label="Default select example">
                                     <option selected>Fakultas</option>
-                                    <option value="{{tabel_mhs.fakultas}}">FTI</option>
-                                    <option value="{{tabel_mhs.fakultas}}">FIP</option>
-                                    <option value="{{tabel_mhs.fakultas}}">FE</option>
+                                    <option value="FTI">FTI</option>
+                                    <option value="FIP">FIP</option>
+                                    <option value="FE">FE</option>
                                   </select>
                                 <div class="mb-2">
                                   <label for="exampleInputnama" class="form-label">Kelas</label>
@@ -54,7 +54,7 @@
                                   
                                 </div>
                                 <div class="mb-3">
-                                  <label for="exampleInputnama" class="form-label">semester</label>
+                                  <label for="exampleInputnama" class="form-label">Semester</label>
                                   <input name="semester" value="{{tabel_mhs.semester}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
@@ -88,14 +88,14 @@
                 <table class="table table-bordered">
                     <thead style="background-color: #198754">
                         <tr>
-                            <th style="width: 15%; text-align: center; color: aliceblue;">NO</th>
+                            <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue;">PROGRAM STUDI</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">FAKULTAS</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">KELAS</th>
+                            <th style="width: 12%; text-align: center; color: aliceblue;">PROGRAM STUDI</th>
+                            <th style="width: 12%; text-align: center; color: aliceblue">FAKULTAS</th>
+                            <th style="width: 7%; text-align: center; color: aliceblue">KELAS</th>
                             <th style="width: 10%; text-align: center; color: aliceblue">SEMESTER</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">TAHUN MASUK</th>
+                            <th style="width: 12%; text-align: center; color: aliceblue">TAHUN MASUK</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
