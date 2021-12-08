@@ -32,7 +32,7 @@
                             <form method="post" action="">
                             {% csrf_token %}
                                 <div class="mb-3">
-                                  <label for="exampleInputNim" class="form-label">nama</label>
+                                  <label for="exampleInputNim" class="form-label">Nama</label>
                                   <input name="nama" type="integer" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
                                   
                                 </div>
@@ -44,11 +44,6 @@
                                 <div class="mb-3">
                                   <label for="exampleInputnama" class="form-label">NIDN</label>
                                   <input name="nidn" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
-                                  
-                                </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputnama" class="form-label">NPWP</label>
-                                  <input name="npwp" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                   
                                 </div>
                                 <div class="mb-3">
@@ -91,7 +86,6 @@
                             <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIP</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIDN</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">NPWP</th>
                             <th style="width: 10%; text-align: center; color: aliceblue">NO.HP</th>
                             <th style="width: 10%; text-align: center; color: aliceblue">PROGRAM STUDI</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
@@ -105,7 +99,6 @@
                             <td>{{i.nama}}</td>
                             <td>{{i.nip}}</td>
                             <td>{{i.nidn}}</td>
-                            <td>{{i.npwp}}</td>
                             <td>{{i.hp}}</td>
                             <td>{{i.prodi}}</td>
                             <td class="d-flex justify-content">

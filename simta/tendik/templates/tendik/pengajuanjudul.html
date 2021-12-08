@@ -24,29 +24,31 @@
                 <table class="table table-bordered">
                     <thead style="background-color: #198754">
                         <tr>
+                            <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
                             <th style="width: 10%; text-align: center; color: aliceblue;">PEMBIMBING 1</th>
                             <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 2</th>
                             <th style="width: 20%; text-align: center; color: aliceblue">JUDUL 1</th>
                             <th style="width: 20%; text-align: center; color: aliceblue">JUDUL 2</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue">JUDUL REVISI</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">STATUS</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in data_judul %}
                         <tr>
+                            <td>{{forloop.counter}}</td>
                             <td>wahma ravanna rafail</td>
                             <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
+                            <td></td>
+                            <td></td>
+                            <td>{{i.judul_1}}</td>
+                            <td>{{i.judul_2}}</td>
                             <td class="d-flex justify-content">
                                 <button type="button" class="btn btn-success">Judul 1 Approve</button>
                             </td>
                         </tr>
+                        {% endfor %}
                     
                     
                     </tbody>
