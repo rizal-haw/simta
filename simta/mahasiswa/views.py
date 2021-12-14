@@ -30,9 +30,8 @@ def pengajuanJudulViewMhs(request):
     if request.POST:
         judul_1 = request.POST['judul_1']
         judul_2 = request.POST['judul_2']
-        pemb_1 = request.POST['pemb_1']
         models.Judul.objects.create(
-            judul_1=judul_1, judul_2=judul_2, pemb_1=pemb_1)
+            judul_1=judul_1, judul_2=judul_2)
     data_judul = models.Judul.objects.all()
     print(data_judul)
     return render(request, 'mhs/pengajuan-judul.html', {

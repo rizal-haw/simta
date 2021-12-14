@@ -88,3 +88,9 @@ def proposalView(request):
 
 def tugasAkhirView(request):
     return render(request, 'tendik/tugas-akhir.html')
+
+def jadwalBimbingan(request):
+    return render(request, 'tendik/jadwal-bimbingan.html')
+
+def jadwalSidang(request):
+    return render(request, 'tendik/jadwal-sidang.html')

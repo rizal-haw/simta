@@ -10,9 +10,6 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
             </div>
         </div>
         
@@ -29,19 +26,20 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form method="post" action="">
+                            {% csrf_token %}
                             <fieldset disabled>
                                 <div class="mb-3">
                                     <label for="disabledTextInput" class="form-label">Nama</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    <input type="text" id="" class="form-control" placeholder="Sidiq Mustofa">
                                 </div>
                                 <div class="mb-3">
                                     <label for="disabledTextInput" class="form-label">Nim</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="121212">
                                 </div>
                                 <div class="mb-3">
                                     <label for="disabledTextInput" class="form-label">Judul</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Aplikasi Android Berbasis WEB">
                                 </div>
                                 </fieldset>
                                 <div class="btn-group mb-3" role="group" aria-label="Basic checkbox toggle button group">
@@ -52,21 +50,21 @@
                                 <fieldset disabled>
                                 <div class="mb-3">
                                     <label for="disabledTextInput" class="form-label">Topik Bimbingan</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="BAB III">
                                 </div>
                                 <div class="mb-3">
                                     <label for="disabledTextInput" class="form-label">Deskripsi</label>
-                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Lorem Ipsum">
                                 </div>
                             </fieldset>
                             <div class="mb-3">
-                                <label for="disabledTextInput" class="form-label">Atur Jadwal</label>
-                                <input type="date" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                                <input type="time" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                <label for="date" class="form-label">Atur Jadwal</label>
+                                <input type="date" id="date" class="form-control" placeholder="" name="date">
+                                <input type="time" id="waktu" class="form-control" placeholder="" name="waktu">
                             </div>
                             <div class="mb-3">
-                                <label for="disabledTextInput" class="form-label">Tempat</label>
-                                <input type="Location" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                <label for="lokasi" class="form-label">Tempat</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="Lokasi" name="lokasi">
                             </div>
                             
                         </form>
@@ -88,16 +86,23 @@
                             <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL</th>
                             <th style="width: 13%; text-align: center; color: aliceblue">TOPIK BIMBINGAN</th>
                             <th style="width: 7%; text-align: center; color: aliceblue">STATUS</th>
+                            <th style="width: 7%; text-align: center; color: aliceblue">JADWAL</th>
                             <th style="width: 7%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in jadwalBimbing %}
                         <tr>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
+                            <td>Sidiq Mustofa</td>
+                            <td>121212</td>
+                            <td>Aplikasi Android Berbasis WEB</td>
+                            <td>BAB III</td>
+                            <td>---</td>
+                            <td>
+                                {{i.date}}
+                                {{i.waktu}}
+                                {{i.lokasi}}
+                            </td>
                             <td>
                                 <div class="d-flex justify-content-between ">
         
@@ -113,6 +118,7 @@
                             </td>
                             
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
