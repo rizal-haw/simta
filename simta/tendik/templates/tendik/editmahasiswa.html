@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+   <div class="modal-body">
+      <form method="post" action="">
+      {% csrf_token%}
+          <div class="mb-3">
+            <label for="exampleInputNim" class="form-label">Nama</label>
+            <input name="nama" value="{{tabel_mhs.nama}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnama" class="form-label">Nim</label>
+            <input name="nim" value="{{tabel_mhs.nim}}" type="number" class="form-control">
+            
+          </div>
+          <select name="prodi" class="mb-3 form-select" aria-label="Default select example">
+              <option selected>Program Studi</option>
+              <option value="Informatika">Informatika</option>
+              <option value="Teknik Komputer">Teknik Komputer</option>
+              <option value="Bahasa Inggris">Bahasa Inggris</option>
+            </select>
+          <select name="fakultas" class="mb-3 form-select" aria-label="Default select example">
+              <option selected>Fakultas</option>
+              <option value="FTI">FTI</option>
+              <option value="FIP">FIP</option>
+              <option value="FE">FE</option>
+            </select>
+          <div class="mb-2">
+            <label for="exampleInputnama" class="form-label">Kelas</label>
+            <input name="kelas" value="{{tabel_mhs.kelas}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnama" class="form-label">Semester</label>
+            <input name="semester" value="{{tabel_mhs.semester}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputnama" class="form-label">Tahun Masuk</label>
+            <input name="tahun_masuk" value="{{tabel_mhs.tahun_masuk}}" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
+            
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Close</button>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Edit</button>
+          </div>
+      </form>
+  </div>
+</main>
+
+{% endblock %}
