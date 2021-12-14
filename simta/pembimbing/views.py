@@ -15,6 +15,12 @@ def pengajuanJudulViewPembimbing(request):
     data_judul = models.Judul.objects.all()
     konteks = {'data_judul': data_judul}
     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+
+# Detail Judul
+def detailJudul(request, id):
+    detail_judul = models.Judul.objects.filter(id = id).first()
+    konteks = {'detail_judul': detail_judul}
+    return render(request, 'pembimbing/detail-judul.html', konteks)
 # -------end----------------------------------------------
 
 # -------Halaman Pengajuan Proposal------------------------

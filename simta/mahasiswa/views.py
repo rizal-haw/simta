@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
@@ -37,6 +37,10 @@ def pengajuanJudulViewMhs(request):
     return render(request, 'mhs/pengajuan-judul.html', {
         'judul': data_judul
     })
+
+def hapusJudul(request, id):
+    models.Judul.objects.filter(pk = id).delete()
+    return redirect('mhs/pengajuan-judul')
 # ---------------------------------------------------------------
 
 # --------------------Halaman Proposal---------------------------
