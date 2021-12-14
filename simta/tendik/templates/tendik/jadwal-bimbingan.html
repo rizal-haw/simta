@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Dosen Pembimbing</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Kelola Bimbingan</li>
+            <li class="breadcrumb-item active">Dose Pembimbing</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Kelola Bimbingan Dosen
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead style="background-color: #198754">
+                        <tr>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue;">P1</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue;">P2</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">SISA KUOTA P1</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">SISA KUOTA P2</th>
+                            <th style="width: 5%; text-align: center; color: aliceblue">AKSI</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>wahma ravanna rafail</td>
+                            <td>
+                                <div class="d-flex flex-column">
+                                        <a class="btn btn-warning mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
+                                               <i class="" aria-hidden="true"></i>
+                                        </span><span>
+                                        Edit
+                                        </span></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalToggleLabel">Edit Kuota Dosen Pembimbing</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                        <form>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+                                    <div class="mx-3">
+                                        <label for="disabledTextInput" class="form-label">Kuota P1</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+                                    <div class="mx-3">
+                                        <label for="disabledTextInput" class="form-label">Kuota P2</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Save</button>
+                                </div>
+                        </form>
+                    
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -28,8 +28,20 @@ def pengajuanProposalViewPembimbing(request):
 def pengajuanTAViewPembimbing(request):
     return render(request, 'pembimbing/pengajuan-ta.html')
 
+# -----------Halaman Permintaan Bimbingan------------------------
+
 def permintaanBimbinganViewPembimbing(request):
-    return render(request, 'pembimbing/permintaan-bimbingan.html')
+    if request.POST:
+        models.JadwalBimbingan.objects.create(
+            date = request.POST['date'],
+            waktu = request.POST['waktu'],
+            lokasi = request.POST['lokasi'],
+        )
+    jadwalBimbing = models.JadwalBimbingan.objects.all()
+    konteks = {'jadwalBimbing': jadwalBimbing}
+    return render(request, 'pembimbing/permintaan-bimbingan.html', konteks)
+
+# -------------End-----------------------------------------------
 
 def bimbinganProposalProposalViewPembimbing(request):
     return render(request, 'pembimbing/bimbingan-proposal.html')
