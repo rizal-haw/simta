@@ -82,9 +82,9 @@ def pengajuanJudulView(request):
     return render(request, 'tendik/pengajuanjudul.html', konteks)
 
 def proposalView(request):
-    data_judul = models.Judul.objects.all()
-    konteks = {'data_judul' : data_judul}
-    return render(request, 'tendik/proposal.html', konteks)
+    data_pembimbing = models.pembimbing.objects.all()
+    konteks2 = {'data_pembimbing' : data_pembimbing}
+    return render(request, 'tendik/proposal.html', konteks2)
 
 def tugasAkhirView(request):
     return render(request, 'tendik/tugas-akhir.html')
