@@ -26,7 +26,9 @@ def pengajuanProposalViewPembimbing(request):
 # --------End-----------------------------------------------
 
 def pengajuanTAViewPembimbing(request):
-    return render(request, 'pembimbing/pengajuan-ta.html')
+    data_ta = models.ta.objects.all()
+    konteks = {'data_ta': data_ta}
+    return render(request, 'pembimbing/pengajuan-ta.html',konteks)
 
 def permintaanBimbinganViewPembimbing(request):
     return render(request, 'pembimbing/permintaan-bimbingan.html')
