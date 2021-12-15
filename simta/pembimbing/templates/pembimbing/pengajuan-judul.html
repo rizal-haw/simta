@@ -25,66 +25,34 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalToggleLabel">Masukkan Feedback</h5>
+                      <h5 class="modal-title" id="exampleModalToggleLabel">Form Penyetujuan</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
-                            Approve Judul :
-
-                            <br>
-                            <br>
-                            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Judul 1
-                                </label>
-                                <br>
-                                {% for i in data_judul %}
-                                <td>{{i.judul_1}}</td>
-                                {% endfor %}
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Judul 2
-                                </label>
-                                <br>
-                                {% for i in data_judul %}
-                                <td>{{i.judul_2}}</td>
-                                {% endfor %}
-                              </div>
-                            <hr>
-                            Disapprove Judul :
-                            
-                            <br>
-                            <br>
-                            
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Judul 1
-                                </label>
-                                <br>
-                                {% for i in data_judul %}
-                                <td>{{i.judul_1}}</td>
-                                {% endfor %}
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  Judul 2
-                                </label>
-                                <br>
-                                {% for i in data_judul %}
-                                <td>{{i.judul_2}}</td>
-                                {% endfor %}
-                              </div>
-                              <hr>
-                          <div class="form-floating">
+                          {% for detail in data_judul%}
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              <span>Judul 1: </span><span>{{detail.judul_1}}</span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              <span>Judul 2: </span><span>{{detail.judul_1}}</span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              <span>Tolak</span>
+                            </label>
+                          </div>
+                          {% endfor%}
+                          <div class="form-floating mt-4">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Feedback</label>
+                            <label for="floatingTextarea2">Tambahkan Keterangan</label>
                           </div>
                         </form>
                     </div>
@@ -132,14 +100,14 @@
                             <td>
                                 <div class="d-flex flex-column">
             
-                                  <!-- <div class="mx-3" > -->
+                                  
     
                                       <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
                                              <i class="" aria-hidden="true"></i>
                                       </span><span>
                                       Detail
                                       </span></a>
-                                  <!-- </div> -->
+                                  
                                 </div>
                             </td>
                         </tr>

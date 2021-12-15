@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main>
+<div class="modal-body">
+    <form method="post" action="">
+    {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputNim" class="form-label">Nama</label>
+          <input name="nama" value="{{tabel_mhs.nama}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnama" class="form-label">Nip</label>
+          <input name="nip" value="{{tabel_mhs.nip}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnama" class="form-label">NIDN</label>
+          <input name="nidn" value="{{tabel_mhs.nidn}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+          
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputnama" class="form-label">NO.HP</label>
+          <input name="hp" value="{{tabel_mhs.hp}}" type="text" class="form-control" id="exampleInputNim" aria-describedby="NimHelp">
+          
+        </div>
+        <select name="prodi" class="mb-3 form-select" aria-label="Default select example">
+            <option selected>Program Studi</option>
+            <option value="Informatika">informatika</option>
+            <option value="Teknik Komputer">teknik komputer</option>
+            <option value="Bahasa Inggris">bahasa inggris</option>
+        </select>
+          <div class="modal-footer">
+              <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+              <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+          </div>
+    </form>
+</div>
+</main>
+
+{% endblock %}

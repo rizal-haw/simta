@@ -15,6 +15,12 @@ def pengajuanJudulViewPembimbing(request):
     data_judul = models.Judul.objects.all()
     konteks = {'data_judul': data_judul}
     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+
+# Detail Judul
+def detailJudul(request, id):
+    detail_judul = models.Judul.objects.filter(id = id).first()
+    konteks = {'detail_judul': detail_judul}
+    return render(request, 'pembimbing/detail-judul.html', konteks)
 # -------end----------------------------------------------
 
 # -------Halaman Pengajuan Proposal------------------------
@@ -30,8 +36,20 @@ def pengajuanTAViewPembimbing(request):
     konteks = {'data_ta': data_ta}
     return render(request, 'pembimbing/pengajuan-ta.html',konteks)
 
+# -----------Halaman Permintaan Bimbingan------------------------
+
 def permintaanBimbinganViewPembimbing(request):
-    return render(request, 'pembimbing/permintaan-bimbingan.html')
+    if request.POST:
+        models.JadwalBimbingan.objects.create(
+            date = request.POST['date'],
+            waktu = request.POST['waktu'],
+            lokasi = request.POST['lokasi'],
+        )
+    jadwalBimbing = models.JadwalBimbingan.objects.all()
+    konteks = {'jadwalBimbing': jadwalBimbing}
+    return render(request, 'pembimbing/permintaan-bimbingan.html', konteks)
+
+# -------------End-----------------------------------------------
 
 def bimbinganProposalProposalViewPembimbing(request):
     return render(request, 'pembimbing/bimbingan-proposal.html')
