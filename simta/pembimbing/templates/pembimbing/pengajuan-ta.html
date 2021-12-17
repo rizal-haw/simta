@@ -69,10 +69,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {%for i in data_ta%}
                         <tr>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
-                            <td>wahma ravanna rafail</td>
+                            
+                            <td>{{i.nama}}</td>
+                            <td>{{i.nim}}</td>
+                            <td>{{i.judul}}</td>
                             <td>
 
                                 <div class="d-flex justify-content-between ">
@@ -88,6 +90,7 @@
                                 </div>
                             </td>
                         </tr>
+                        {%endfor%}
                     </tbody>
                 </table>
             </div>
