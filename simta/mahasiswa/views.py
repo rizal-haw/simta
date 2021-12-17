@@ -2,25 +2,43 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from tendik.models import PembimbingModel
 
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
 # ---------------------Halaman Pembibmbing-------------------------------------
 
+# def pembimbingViewMhs(request):
+#     if request.POST:
+
+#         pembimbing_1 = request.POST['pembimbing_1']
+#         pembimbing_2 = request.POST['pembimbing_2']
+#         models.pembimbing.objects.create(
+#             pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
+#         print(pembimbing_1)
+#         print(pembimbing_2)
+#     data_pembimbing =  models.pembimbing.objects.all()
+#     return render(request, 'mhs/pembimbing.html', {
+#         'pembimbing': data_pembimbing
+#     })
 def pembimbingViewMhs(request):
     if request.POST:
+        input_pembimbing_1 = request.POST['pembimbing_1']
+        input_pembimbing_2 = request.POST['pembimbing_2']
+        models.pembimbing.objects.create(pembimbing_1=input_pembimbing_1, pembimbing_2=input_pembimbing_2)
+        print("berhasil")
 
-        pembimbing_1 = request.POST['pembimbing_1']
-        pembimbing_2 = request.POST['pembimbing_2']
-        models.pembimbing.objects.create(
-            pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
-        print(pembimbing_1)
-        print(pembimbing_2)
-    data_pembimbing =  models.pembimbing.objects.all()
+    pemb_table =PembimbingModel.objects.all()
+    data_ploting = models.pembimbing.objects.all()
+    konteks = {
+        'data_pembimbing' : pemb_table,
+        'data_ploting': data_ploting
+    }
     return render(request, 'mhs/pembimbing.html', {
-        'pembimbing': data_pembimbing
+        'data': konteks
     })
+    
 
 # End Halaman Pembimbing----------------------------------------------
 
@@ -40,7 +58,13 @@ def pengajuanJudulViewMhs(request):
 
 def hapusJudul(request, id):
     models.Judul.objects.filter(pk = id).delete()
-    return redirect('mhs/pengajuan-judul')
+    return redirect('/mhs/pengajuan-judul')
+
+def hapusPembimbing(request, id):
+    models.pembimbing.objects.filter(pk = id).delete()
+    return redirect('/mhs/pembimbing')
+
+
 # ---------------------------------------------------------------
 
 # --------------------Halaman Proposal---------------------------

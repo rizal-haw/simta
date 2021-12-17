@@ -56,7 +56,6 @@
                         </div>
                     </div>
                             <div>
-                            <div>
                                 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                 </span><span>
@@ -66,23 +65,50 @@
                             </div>
                             
                             </div>
-                            <div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead style="background-color: #198754">
+                                        <tr>
+                                            <th style="width: 3%; text-align: center; color: aliceblue;">No</th>
+                                            <th style="width: 25%; text-align: center; color: aliceblue;">Judul 1</th>
+                                            <th style="width: 25%; text-align: center; color: aliceblue;">Judul 2</th>
+                                            <th style="width: 25%; text-align: center; color: aliceblue;">Judul Diterima</th>
+                                            <th style="width: 7%; text-align: center; color: aliceblue">Aksi</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+                                        {% for i in judul %}
+                                      <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{i.judul_1}}</td>
+                                        <td>{{i.judul_2}}</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="hapus-judul/{{i.id}}">Hapus</a>
+                                        </td>
+                                    </tr>
+                                      {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- <div>
 
                                 <table class="table table-striped table-hover ">
                                     <thead class="btn-success">
-                                        <tr class="text-center">
-                                            <th>NO</th>
-                                            <th>judul 1</th>
-                                            <th>judul 2</th>
-                                            <th>status</th> 
-                                        </tr>
+                                        <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
+                                        <th style="width: 25%; text-align: center; color: aliceblue;">judul 1</th>
+                                        <th style="width: 25%; text-align: center; color: aliceblue;">Judul 2</th>
+                                        <th style="width: 25%; text-align: center; color: aliceblue">Judul Diterima</th>
+                                        <th style="width: 7%; text-align: center; color: aliceblue">Aksi</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
                                         {% for i in judul %}
-                                        <tr class="text-center">
+                                        <tr>
                                             <td>{{forloop.counter}}</td>
                                             <td>{{i.judul_1}}</td>
                                             <td>{{i.judul_2}}</td>
+                                            <td></td>
                                             <td>
                                                 <a href="hapus-judul/{{i.id}}">Hapus</a>
                                             </td>
@@ -90,7 +116,7 @@
                                         {% endfor %}
                                     </tbody>
                                 </table>
-                            </div>     
+                            </div>      -->
             </div>
         </div>
     </div>

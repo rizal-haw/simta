@@ -1,13 +1,14 @@
 from django.db import models
+# from simta import tendik
+# from tendik.models import pembimbing
 
 class pembimbing(models.Model):
+    id_mahasiswa = models.ForeignKey('tendik.PembimbingModel', on_delete=models.DO_NOTHING, null=True, blank=True)
     pembimbing_1 = models.TextField(max_length=180)
     pembimbing_2 = models.TextField(max_length=180)
-
-    # def __str__(self):
-    #     return self.pembimbing_1, self.pembimbing_2
         
 class Judul(models.Model):
+    id_mahasiswa = models.ForeignKey('tendik.MahasiswaModel', on_delete=models.DO_NOTHING, null= True, blank=True)
     judul_1 = models.TextField(max_length=150)
     judul_2 = models.TextField(max_length=150)
     # pembimbing = models.ForeignKey(pembimbing, on_delete=models.CASCADE)

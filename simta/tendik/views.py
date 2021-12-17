@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from mahasiswa import models as mhs_models # memanggil models pada mahasiswa
 from .forms import MahasiswaForm
 
 def dashboardView(request):
@@ -100,8 +101,15 @@ def editpembimbing(request, id):
 
 def pengajuanJudulView(request):
     data_judul = models.Judul.objects.all()
-    konteks = {'data_judul' : data_judul}
-    return render(request, 'tendik/pengajuanjudul.html', konteks)
+    data_pem = mhs_models.pembimbing.objects.all()
+    print(data_pem)
+    print(data_judul)
+    # konteks = {'data_judul' : data_judul}
+    # konteks2 = {'data_pem' : data_pem}
+    return render(request, 'tendik/pengajuanjudul.html', {
+        'data_judul' : data_judul,
+        'datapem' : data_pem,
+    })
 
 def proposalView(request):
     data_pembimbing = models.pembimbing.objects.all()
