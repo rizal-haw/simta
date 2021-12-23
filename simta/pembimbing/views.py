@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
+
+@login_required(login_url=settings.LOGIN_URL)
 def dashboardViewPembimbing(request):
     return render(request, 'pembimbing/index.html')
 
