@@ -5,19 +5,22 @@ from mahasiswa.models import Judul, pembimbing
 
 class PembimbingModel(models.Model):
     nama = models.CharField(max_length=50)
-    nip = models.IntegerField()
+    nip = models.IntegerField(unique=True)
     nidn = models.IntegerField()
-    hp = models.IntegerField()
+    hp = models.BigIntegerField()
     prodi = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.nama
 
 class MahasiswaModel(models.Model):
     nama = models.CharField(max_length=50)
-    nim = models.IntegerField()
+    nim = models.IntegerField(unique=True)
     prodi = models.CharField(max_length=20)
     fakultas = models.CharField(max_length=20)
     kelas = models.CharField(max_length=3)
-    semester = IntegerField()
+    semester = models.IntegerField()
     tahun_masuk = models.IntegerField(null=True)
+    # id_pembimbing = models.ForeignKey(PembimbingModel, on_delete=models.DO_NOTHING, null=True, blank=True)
     
 

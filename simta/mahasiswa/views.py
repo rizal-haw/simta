@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from tendik import models as tendik_models
+from tendik.models import PembimbingModel
 
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
 # ---------------------Halaman Pembibmbing-------------------------------------
+
 
 def pembimbingViewMhs(request):
     if request.POST:
@@ -17,7 +20,8 @@ def pembimbingViewMhs(request):
             pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
         print(pembimbing_1)
         print(pembimbing_2)
-    data_pembimbing =  models.pembimbing.objects.all()
+    data_pembimbing =  PembimbingModel.objects.all()
+    print(data_pembimbing)
     return render(request, 'mhs/pembimbing.html', {
         'pembimbing': data_pembimbing
     })
