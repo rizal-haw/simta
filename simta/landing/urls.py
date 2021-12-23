@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
-from landing.views import Index
+
 
 urlpatterns = [
-    path('', Index.as_view(), name='index'),
-    path('login-user', views.login_user, name='login_user'),
+    path('', views.index, name='index'),
+    path('register/', views.register, name='daftar'),
+    path('login/', views.login_user, name='login'),
+    path('logout/', views.login_user, name='logout'),
 ]
