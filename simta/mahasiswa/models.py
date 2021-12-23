@@ -30,6 +30,14 @@ class ta (models.Model):
     judul = models.CharField(max_length=200)
     pembimbing_1 = models.CharField(max_length=20)
     pembimbing_2 = models.CharField(max_length=20)
-    
 
     
+class sempro (models.Model):
+    nama = models.CharField(max_length=50)
+    nim = models.IntegerField()
+    fakultas = models.CharField(max_length=30)
+    prodi = models.CharField(max_length=30)
+    pembimbing_1 = models.CharField(max_length=20)
+    pembimbing_2 = models.CharField(max_length=20)
+    judul = models.CharField(max_length=500)
+    abstrak = models.CharField(max_length=5000)

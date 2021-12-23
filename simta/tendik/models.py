@@ -9,6 +9,7 @@ class PembimbingModel(models.Model):
     nidn = models.IntegerField()
     hp = models.BigIntegerField()
     prodi = models.CharField(max_length=20)
+    
 
     def __str__(self):
         return self.nama

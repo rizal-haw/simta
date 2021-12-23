@@ -84,7 +84,22 @@ def TAViewMhs(request):
     'ta': data_ta })
 
 def seminarproposalViewMhs(request):
-    return render(request, 'mhs/seminar-proposal.html')
+    if request.POST:
+        nama = request.POST['nama']
+        nim = request.POST['nim']
+        fakultas = request.POST['fakultas']
+        prodi = request.POST['prodi']
+        pembimbing_1 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_2']
+        judul = request.POST['judul']
+        abstrak = request.POST['abstrak']
+        models.sempro.objects.create(
+            nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
+
+    data_sempro = models.sempro.objects.all()
+    print (data_sempro)
+    return render(request, 'mhs/seminar-proposal.html',{
+        'sempro': data_sempro })
 
 
 def sidangskripsiViewMhs(request):

@@ -121,5 +121,8 @@ def tugasAkhirView(request):
 def jadwalBimbingan(request):
     return render(request, 'tendik/jadwal-bimbingan.html')
 
+def jadwalSeminarProposal(request):
+    return render(request, 'tendik/jadwal-sempro.html')
+
 def jadwalSidang(request):
     return render(request, 'tendik/jadwal-sidang.html')
