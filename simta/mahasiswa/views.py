@@ -4,12 +4,15 @@ from django.views import View
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from tendik import models as tendik_models
+from tendik.models import PembimbingModel
 
 @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
 # ---------------------Halaman Pembibmbing-------------------------------------
+
 
 def pembimbingViewMhs(request):
     if request.POST:
@@ -20,7 +23,8 @@ def pembimbingViewMhs(request):
             pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
         print(pembimbing_1)
         print(pembimbing_2)
-    data_pembimbing =  models.pembimbing.objects.all()
+    data_pembimbing =  PembimbingModel.objects.all()
+    print(data_pembimbing)
     return render(request, 'mhs/pembimbing.html', {
         'pembimbing': data_pembimbing
     })
@@ -83,7 +87,22 @@ def TAViewMhs(request):
     'ta': data_ta })
 
 def seminarproposalViewMhs(request):
-    return render(request, 'mhs/seminar-proposal.html')
+    if request.POST:
+        nama = request.POST['nama']
+        nim = request.POST['nim']
+        fakultas = request.POST['fakultas']
+        prodi = request.POST['prodi']
+        pembimbing_1 = request.POST['pembimbing_1']
+        pembimbing_2 = request.POST['pembimbing_2']
+        judul = request.POST['judul']
+        abstrak = request.POST['abstrak']
+        models.sempro.objects.create(
+            nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
+
+    data_sempro = models.sempro.objects.all()
+    print (data_sempro)
+    return render(request, 'mhs/seminar-proposal.html',{
+        'sempro': data_sempro })
 
 
 def sidangskripsiViewMhs(request):
