@@ -48,9 +48,7 @@ def pengajuanJudulViewMhs(request):
 def hapusJudul(request, id):
     models.Judul.objects.filter(pk = id).delete()
     return redirect('mhs/pengajuan-judul')
-# ---------------------------------------------------------------
-
-# --------------------Halaman Proposal---------------------------
+    
 
 def proposalViewMhs(request):
     if request.POST:
