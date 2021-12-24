@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from tendik import models as tendik_models
 from tendik.models import PembimbingModel
 
+# @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
