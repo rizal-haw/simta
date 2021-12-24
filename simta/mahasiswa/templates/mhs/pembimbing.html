@@ -36,9 +36,6 @@
                                 <form action="" method="post">
                                     {% csrf_token%}
                                     <div class="dropdown d-grid gap-2 ">
-                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            pilih pembimbing 1
-                                        </button> -->
                                     <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
                                         <option selected>Pembimbing 1</option>
                                         {%for i in pembimbing%}

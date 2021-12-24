@@ -20,6 +20,7 @@ urlpatterns = [
     path('proposal', views.proposalView, name='proposal'),
     path('tugas-akhir', views.tugasAkhirView, name='tugas-akhir'),
     path('jadwal-bimbingan', views.jadwalBimbingan, name='jadwal-bimbingan'),
+    path('jadwal-sempro', views.jadwalSeminarProposal, name='jadwal-sempro'),
     path('jadwal-sidang', views.jadwalSidang, name='jadwal-sidang'),
     # path('kelola-bimbingan-mahasiswa', views.kelolaBimbinganMahasiswaView, name='kelola-bimbingan-mahasiswa'),
     # path('kelola-bimbingan-dosen', views.kelolaBimbinganDosenView, name='kelola-bimbingan-dosen'),
