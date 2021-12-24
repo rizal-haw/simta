@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib import messages
 
-@login_required(login_url=settings.LOGIN_URL)
+# @login_required(login_url=settings.LOGIN_URL)
 def dashboardView(request):
     return render(request, 'tendik/index.html')
 

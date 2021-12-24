@@ -7,7 +7,7 @@ from django.conf import settings
 from tendik import models as tendik_models
 from tendik.models import PembimbingModel
 
-@login_required(login_url=settings.LOGIN_URL)
+# @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
