@@ -86,11 +86,7 @@ body {
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
-<<<<<<< HEAD
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-=======
-  -webkit-tap-highlight-color: rgba(29, 170, 71, 0);
->>>>>>> a66704213846a1d563b5ff44045556355077eebb
 }
 
 hr {
@@ -609,13 +605,8 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-<<<<<<< HEAD
   background-color: #fff;
   border: 1px solid #dee2e6;
-=======
-  background-color: rgb(22, 233, 57);
-  border: 1px solid #0ae69c;
->>>>>>> a66704213846a1d563b5ff44045556355077eebb
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -2202,15 +2193,9 @@ progress {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-<<<<<<< HEAD
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-=======
-  background-color: rgb(247, 252, 247);
-  background-clip: padding-box;
-  border: 1px solid rgb(241, 248, 241);
->>>>>>> a66704213846a1d563b5ff44045556355077eebb
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
