@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static%}
 <main class="form-signin">
   <form>
-   
-    <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+  
+    <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
 
     <span class="mb-0 text-muted">
       {% if msg %}
@@ -23,6 +24,8 @@
           <label for="username">Password</label>
           {{ form.password }}
           
+            
+          
         </div>
 
 
@@ -40,8 +43,8 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-center">&copy; 2017–2021</p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    <p class="mt-5 mb-3 text-center">&copy; 2021–2024</p>
 </form>
 </main>
 
