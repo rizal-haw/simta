@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -97,12 +98,8 @@ WSGI_APPLICATION = 'simta.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'simta', 
-        'USER': 'postgres', 
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
     }
 }
 
@@ -146,8 +143,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    '/var/www/static/',
+    os.path.join(BASE_DIR / "static"
+   ),
 ]
 
 # Default primary key field type
@@ -159,3 +156,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'landing.User'
 
 LOGIN_URL = 'login'
+#  '/var/www/static/asset/img'
