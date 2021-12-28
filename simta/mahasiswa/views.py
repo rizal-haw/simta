@@ -35,10 +35,10 @@ def pembimbingViewMhs(request):
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
-        judul_1 = request.POST['judul_1']
-        judul_2 = request.POST['judul_2']
+        judul_ta = request.POST['judul_ta']
+        # judul_2 = request.POST['judul_2']
         models.Judul.objects.create(
-            judul_1=judul_1, judul_2=judul_2)
+            judul_ta=judul_ta)
     data_judul = models.Judul.objects.all()
     print(data_judul)
     return render(request, 'mhs/pengajuan-judul.html', {
@@ -47,7 +47,7 @@ def pengajuanJudulViewMhs(request):
 
 def hapusJudul(request, id):
     models.Judul.objects.filter(pk = id).delete()
-    return redirect('mhs/pengajuan-judul')
+    return redirect('/mhs/pengajuan-judul')
     
 
 def proposalViewMhs(request):
