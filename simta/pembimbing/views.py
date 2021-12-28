@@ -15,9 +15,22 @@ def pembimbingViewPembimbing(request):
 
 # ---------------Halaman Pengajuan Judul-----------------
 
+# def pengajuanJudulViewPembimbing(request):
+#     data_judul = models.Judul.objects.all()
+#     konteks = {'data_judul': data_judul}
+#     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+
 def pengajuanJudulViewPembimbing(request):
+    if request.method == 'POST':
+        get_judul = request.POST['judul']
+        keterangan = request.POST['keterangan']
+
+        judul_input = models.Judul.objects.filter(id=get_judul).first()
+        models.PenyetujuanJudul.objects.create(judul=judul_input, keterangan=keterangan)
+
     data_judul = models.Judul.objects.all()
-    konteks = {'data_judul': data_judul}
+    penyetujuan = models.PenyetujuanJudul.objects.all()
+    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan}
     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
 
 # Detail Judul
