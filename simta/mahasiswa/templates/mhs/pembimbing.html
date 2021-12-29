@@ -10,11 +10,7 @@
             <li class="breadcrumb-item active">Pembimbing</li>
         </ol>
         <div class="card mb-4">
-            <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
-            </div>
+            
         </div>
         <div class="card">
             <div class="d-flex justify-content-between card-header">
@@ -36,6 +32,9 @@
                                 <form action="" method="post">
                                     {% csrf_token%}
                                     <div class="dropdown d-grid gap-2 ">
+                                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            pilih pembimbing 1
+                                        </button> -->
                                     <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
                                         <option selected>Pembimbing 1</option>
                                         {%for i in pembimbing%}
@@ -82,7 +81,7 @@
                         <td>{{i.pembimbing_2}}</td>
                         <td></td>
                         <td>
-                            <a href="hapus-pembimbing/{{i.id}}">Hapus</a>
+                            <a href="hapus-pembimbing/{{i.id}}"><button type="button" class="btn btn-danger">hapus</button></a>
                         </td>
                     </tr>
                       {%endfor%}

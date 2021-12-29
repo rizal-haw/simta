@@ -1,63 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% extends 'base.html' %}
 
-    <style>
-        .gradient-custom {
-        
-        background: #00C187;     
-        background: -webkit-linear-gradient(to right, #00C187(106, 17, 203, 1), #00C187(37, 117, 252, 1));
-        background: linear-gradient(to right, #00C187ba(106, 17, 203, 1), #00C187(37, 117, 252, 1))
-        }
+{% block content %}
+{% load static%}
+<main class="form-signin">
+  <form>
+  
+    <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+
+    <span class="mb-0 text-muted">
+      {% if msg %}
+          {{ msg | safe }}
+      {% else %}
+          <!-- Login page -->
+      {% endif %}
+    </span>
+      <form  method="post">
+          {% csrf_token %}
+        <div class="form-group first">
+          <label for="username">Username</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group last mb-4">
+          <label for="username">Password</label>
+          {{ form.password }}
+          
+            
+          
+        </div>
 
 
-    </style>
-</head>
-<body>
-    <section class="vh-50 gradient-custom">
-        <div class="container py-5 h-20">
-          <div class="row d-flex justify-content-center align-items-center h-20">
-            <div class="col-0 col-md-5 col-lg-3 col-xl-5">
-              <div class="card bg-white text-drak" style="border-radius: 2rem;">
-                <div  class="card-body p-5 text-center">
-      
-                  <div class="mb-md-5 mt-md-4 pb-5">
-      
-                    <h2 class="fw-bold mb-0 text-uppercase">Simta</h2>
-                    <p class="text-drak-50 mb-10">Login Page</p>
-                    <form action="" method="post">
+    <!-- <div class="form-floating">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+  </div> -->
 
-                      <div class="form-outline form-drak mb-0">
-                          <label class="form-label" for="typeEmailX">Username</label>
-                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                      </div>
-        
-                      <div class="form-outline form-drak mb-0">
-                          <label class="form-label" for="typePasswordX">Password</label>
-                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                      </div>
-        
-                      <p class="small mb-2 pb-lg-2"><a class="text-drak-50" href="#!">Forgot password?</a></p>
-        
-                      <button class=" btn-outline-drak btn-primary border-radius-1rem" type="submit">Login</button>              
-                       <div>
-                    </form>
-                    <!-- <p class="mb-0">ape lu? <a href="#!" class="text-drak-50 fw-bold">ngerii rek</a></p> -->
-                  </div>
-      
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    <p class="mt-5 mb-3 text-center">&copy; 2021–2024</p>
+</form>
+</main>
+
+<!-- <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+      <div class="col-md-6 order-md-2">
+          <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+        </div> -->
+        <!-- <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                  <div class="mb-4">
                 </div>
+
+              <span class="mb-0 text-muted">
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                    Login page
+                {% endif %}
+              </span>
+                <form  method="post">
+                    {% csrf_token %}
+                  <div class="form-group first">
+                    <label for="username">Username</label>
+                      {{ form.username }}
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="username">Password</label>
+                    {{ form.password }}
+                  </div>
+
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  </div>
+
+                  <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
+                </form>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!--  -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-</body>
-</html>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+{% endblock %}

@@ -11,8 +11,8 @@ class pembimbing(models.Model):
         
 class Judul(models.Model):
     # id_pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
-    judul_1 = models.TextField(max_length=150)
-    judul_2 = models.TextField(max_length=150)
+    judul_ta = models.TextField(max_length=150)
+    # judul_2 = models.TextField(max_length=150)
     # pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
     # def __str__(self):
     #     return self.judul_1, self.judul_2

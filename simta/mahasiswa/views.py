@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
 from . import models
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from tendik import models as tendik_models
 from tendik.models import PembimbingModel
 
+# @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
     return render(request, 'mhs/index.html')
 
@@ -32,10 +35,10 @@ def pembimbingViewMhs(request):
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
-        judul_1 = request.POST['judul_1']
-        judul_2 = request.POST['judul_2']
+        judul_ta = request.POST['judul_ta']
+        # judul_2 = request.POST['judul_2']
         models.Judul.objects.create(
-            judul_1=judul_1, judul_2=judul_2)
+            judul_ta=judul_ta)
     data_judul = models.Judul.objects.all()
     print(data_judul)
     return render(request, 'mhs/pengajuan-judul.html', {
@@ -44,10 +47,8 @@ def pengajuanJudulViewMhs(request):
 
 def hapusJudul(request, id):
     models.Judul.objects.filter(pk = id).delete()
-    return redirect('mhs/pengajuan-judul')
-# ---------------------------------------------------------------
-
-# --------------------Halaman Proposal---------------------------
+    return redirect('/mhs/pengajuan-judul')
+    
 
 def proposalViewMhs(request):
     if request.POST:
