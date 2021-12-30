@@ -6,7 +6,8 @@
         <h1 class="mt-4">Seminar Proposal</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-            <li class="breadcrumb-item active">Pembimbing</li>
+            <li class="breadcrumb-item active">Pendaftaran</li>
+            <li class="breadcrumb-item active">Seminar Proposal</li>
         </ol>
         <div class="card mb-4">
             <!-- <div class="card-header">
@@ -33,49 +34,57 @@
                           <h5 class="modal-title" id="exampleModalToggleLabel">Tambah Data Pembimbing</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form>
+                        <div class="modal-body" >
+                            <form action="" method="post">
                                 {% csrf_token %}
-                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
                                     <div class="mx-3">
                                         <label for="disabledTextInput" class="form-label">Nama</label>
-                                        <input type="text" id="disabledTextInput" class="form-control " placeholder="Nama">
+                                        <input type="text" name="nama" id="disabledTextInput" class="form-control " placeholder="nama">
                                     </div>
                                 </div>
-                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
                                     <div class="mx-3">
                                         <label for="disabledTextInput" class="form-label">NIM</label>
-                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Nim">
+                                        <input type="text" name="nim" id="disabledTextInput" class="form-control" placeholder="nim">
                                     </div>
                                 </div>
-                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-                                    <div class="mx-3">
-                                        <label for="disabledTextInput" class="form-label">Fakultas</label>
-                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="fakultas">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="form-select" aria-label="Default select example" name="fakultas">
+                                            <option selected>Fakultas</option>
+                                            <option value="FTI">FTI</option>
+                                            <option value="Pendidikan">Pendidikan</option>
+                                            <option value="Ekonomi">Ekonomi</option>
+                                          </select>
                                     </div>
                                 </div>
-                                <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-                                    <div class="mx-3">
-                                        <label for="disabledTextInput" class="form-label">Prodi</label>
-                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="prodi">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="form-select" aria-label="Default select example" name="prodi"> 
+                                            <option selected>Prodi</option>
+                                            <option value="Teknik Komputer">Teknik Komputer</option>
+                                            <option value="Informatika">Informatika</option>
+                                            <option value="Teknik Elektro">Teknik Elektro</option>
+                                          </select>
                                     </div>
                                 </div>
-                                <div class="form-floating mb-3" style="display: inline-block; width: 47%;">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
                                     <div class="dropdown d-grid gap-2 ">
                                         <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
                                             <option selected>Pembimbing 1</option>
-                                            {%for i in pembimbing%}
+                                            {%for i in data_pemb%}
                                             <option value="{{i.nama}}">{{i.nama}}</option>
                                             {%endfor%}
                                         </select>
                                         
                                         </div>
                                 </div>
-                                <div class="form-floating mb-3" style="display: inline-block; width: 47%;">
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
                                     <div class="dropdown d-grid gap-2 ">
                                         <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_2" >
                                             <option selected>Pembimbing 2</option>
-                                            {%for i in pembimbing%}
+                                            {%for i in data_pemb%}
                                             <option value="{{i.nama}}">{{i.nama}}</option>
                                             {%endfor%}
                                           </select>
@@ -85,8 +94,8 @@
                                 
                                 <div>
                                     <div class="mb-3">
-                                        <label for="disabledTextInput" class="form-label">Judul</label>
-                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul proposal">
+                                        <label for="disabledTextInput" name="judul" class="form-label">Judul</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul proposal" name="judul">
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -94,8 +103,8 @@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                   </div>
                                 <div class="">
-                                    <label for="message-text" class="col-form-label">Abstrak</label>
-                                    <textarea class="form-control" id="message-text"></textarea>
+                                    <label for="message-text" name="abstrak" class="col-form-label">Abstrak</label>
+                                    <textarea class="form-control" id="message-text" name="abstrak"></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
@@ -129,12 +138,14 @@
                             <th style="width: 10%; text-align: center; color: aliceblue">PRODI</th>
                             <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 1</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">PEMBIMBING 2</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">JUDUL</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">ABSTRAK</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                    
                     <tbody>
-                        {% for i in pemb_table %}
+                        {% for i in sempro%}
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{i.nama}}</td>
@@ -143,11 +154,48 @@
                             <td>{{i.prodi}}</td>
                             <td>{{i.pembimbing_1}}</td>
                             <td>{{i.pembimbing_2}}</td>
-                            <td class="d-flex justify-content">
-                                <button type="button" class="btn btn-primary">Detail</button>        
+                            <td>{{i.judul}}</td>
+                            <td>{{i.abstrak}}</td>
+                            <td>
+                                <div class="d-flex justify-content-between ">
+            
+                                    <div class="mx-3" >
+    
+                                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModal" role="button"><span>
+                                               <i class="" aria-hidden="true"></i>
+                                        </span><span>
+                                        Detail
+                                        </span></a>
+                                    </div>
                             </td>
                         </tr>
                         {% endfor %}
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form>
+                                    <fieldset disabled>
+                                      <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">Status</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Feedback</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                      </div>
+                                    </fieldset>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
                     </tbody>
                 </table>
             </div>

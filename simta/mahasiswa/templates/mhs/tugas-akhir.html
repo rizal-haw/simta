@@ -49,18 +49,17 @@
                                       <input name="judul" type="text" class="form-control" id="exampleInputnama" aria-describedby="namaHelp">
                                       
                                     </div>
-                                    
-                                    <select name="pembimbing_1" class="mb-3 form-select" aria-label="Default select example">
+                                    <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
                                       <option selected>Pembimbing 1</option>
-                                      <option value="Rizal">Rizal</option>
-                                      <option value="Yasin">Yasin</option>
-                                      <option value="Venna">Venna</option>
-                                    </select>
-                                    <select name="pembimbing_2" class="mb-3 form-select" aria-label="Default select example">
+                                      {%for i in data_pemb%}
+                                      <option value="{{i.nama}}">{{i.nama}}</option>
+                                      {%endfor%}
+                                  </select>
+                                  <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_2" >
                                       <option selected>Pembimbing 2</option>
-                                      <option value="Rizal">Rizal</option>
-                                      <option value="Yasin">Yasin</option>
-                                      <option value="Venna">Venna</option>
+                                      {%for i in data_pemb%}
+                                      <option value="{{i.nama}}">{{i.nama}}</option>
+                                      {%endfor%}
                                     </select>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Unggah Tugas Akhir</label>

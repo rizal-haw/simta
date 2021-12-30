@@ -3,11 +3,11 @@
 {% block content %}
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Sidang Skripsi</h1>
+        <h1 class="mt-4">Bimbingan</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Pendaftaran</li>
-            <li class="breadcrumb-item active">Sidang Skripsi</li>
+            <li class="breadcrumb-item active">Bimbingan</li>
         </ol>
         <div class="card mb-4">
             <!-- <div class="card-header">
@@ -34,8 +34,8 @@
                           <h5 class="modal-title" id="exampleModalToggleLabel">Tambah Data Pembimbing</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body" >
-                            <form action="" method="post">
+                        <div class="modal-body">
+                            <form method="POST">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
                                     <div class="mx-3">
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
-                                    <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Daftar</button>
                                   </div>
                             </form>
                         </div>
@@ -134,18 +134,18 @@
                             <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
-                            <th style="width: 7%; text-align: center; color: aliceblue;">FAKULTAS</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">PRODI</th>
-                            <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 1</th>
+                            <th style="width: 5%; text-align: center; color: aliceblue;">FAKULTAS</th>
+                            <th style="width: 5%; text-align: center; color: aliceblue">PRODI</th>
+                            <th style="width: 5%; text-align: center; color: aliceblue">PEMBIMBING 1</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">PEMBIMBING 2</th>
-                            <th style="width: 5%;text-align: center; color: aliceblue">JUDUL</th>
-                            <th style="width: 5%;text-align: center; color: aliceblue">ABSTRAK</th>
+                            <th style="width: 15%;text-align: center; color: aliceblue">JUDUL</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">FILE</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                    
                     <tbody>
-                        {% for i in sidang%}
+                        {% for i in bimbingan%}
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{i.nama}}</td>
@@ -155,10 +155,10 @@
                             <td>{{i.pembimbing_1}}</td>
                             <td>{{i.pembimbing_2}}</td>
                             <td>{{i.judul}}</td>
-                            <td>{{i.abstrak}}</td>
+                            <td></td>
                             <td>
                                 <div class="d-flex justify-content-between ">
-            
+        
                                     <div class="mx-3" >
     
                                         <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModal" role="button"><span>
@@ -167,6 +167,7 @@
                                         Detail
                                         </span></a>
                                     </div>
+                                </div>                                 
                             </td>
                         </tr>
                         {% endfor %}
@@ -195,11 +196,34 @@
                               </div>
                             </div>
                           </div>
-                        
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-</main>>
+</main>
+<!-- <div class="container-fluid px-4">
+    <h1 class="mt-4">Seminar Proposal</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">seminar Proposal</li>
+    </ol>
+    <div class="card mb-4">
+        <div class="card-body btn-white">
+            <var>
+
+                silakan mengisi data terlebih dahulu.
+            </var> 
+
+            <a target="_blank" href="https://datatables.net/">info</a>
+            
+        </div> 
+    </div>
+    <div class="modal-body">
+    
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Daftar Seminar Proposal</button>
+    </div>
+</div> -->
 {%endblock%}
