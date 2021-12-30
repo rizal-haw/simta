@@ -88,19 +88,21 @@
                             <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
                             <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL 1</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue">JUDUL 2</th>
+                            {% for i in data_judul %}
+                            <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL {{forloop.counter}}</th>
+                            {% endfor %}
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- {% for i in data_judul %} -->
-                        <tr>
+                      
+                      <tr>
                             <td>{{forloop.counter}}</td>
                             <td>Belum</td>
                             <td>belum</td>
-                            <td>{{i.judul_1}}</td>
-                            <td>{{i.judul_2}}</td>
+                            {% for i in data_judul %}
+                            <td>{{i.judul_ta}}</td>
+                            {% endfor %}
                             <td>
                                 <div class="d-flex flex-column">
             
@@ -115,7 +117,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <!-- {% endfor %} -->
+                        
                     </tfoot>
                     <tbody>
                     </tbody>
@@ -138,8 +140,6 @@
                           <td>{{i.keterangan}}</td>
                           <td>belum</td>
                           <td>
-                              <a href="detail/{{i.id}}" class="btn btn-success">Detail</a>
-                              <a href="edit/{{i.id}}" class="btn btn-warning">Edit</a>
                               <a href="hapus/{{i.id}}" class="btn btn-danger">Hapus</a>
                           </td>
                           <td></td>

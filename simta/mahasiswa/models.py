@@ -1,21 +1,19 @@
 from django.db import models
-# from tendik import models as tendik_models
+from django.db.models.base import Model
+from django.db.models.deletion import CASCADE
+import pembimbing
+
 
 class pembimbing(models.Model):
     pembimbing_1 = models.TextField(max_length=180)
     pembimbing_2 = models.TextField(max_length=180)
     # pemb = models.ForeignKey(tendik_models, on_delete=models.CASCADE, related_name='pembimbing')
 
-    # def __str__(self):
-    #     return self.pembimbing_1, self.pembimbing_2
         
 class Judul(models.Model):
     # id_pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
     judul_ta = models.TextField(max_length=150)
-    # judul_2 = models.TextField(max_length=150)
     # pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
-    # def __str__(self):
-    #     return self.judul_1, self.judul_2
 
 class proposal(models.Model):
     nama = models.CharField(max_length=50)

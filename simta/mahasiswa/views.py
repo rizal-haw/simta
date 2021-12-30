@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from tendik import models as tendik_models
 from tendik.models import PembimbingModel
+from pembimbing.models import PenyetujuanJudul
 
 # @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
@@ -40,16 +41,23 @@ def pengajuanJudulViewMhs(request):
         models.Judul.objects.create(
             judul_ta=judul_ta)
     data_judul = models.Judul.objects.all()
-    print(data_judul)
+    penyetujuan_judul = PenyetujuanJudul.objects.all()
     return render(request, 'mhs/pengajuan-judul.html', {
-        'judul': data_judul
+        'judul': data_judul,
+        'penyetujuan' : penyetujuan_judul
     })
 
 def hapusJudul(request, id):
     models.Judul.objects.filter(pk = id).delete()
     return redirect('/mhs/pengajuan-judul')
-    
 
+# Fungsi disetujui
+def penyetujuan(request):
+    disetujui = models.PenyetujuanJudul.objects.all()
+    konteks = {'data_setuju' : disetujui}
+    return render(request, 'mhs/pembimbing.html', konteks)
+    
+# ----------------------------------------------------
 def proposalViewMhs(request):
     if request.POST:
         nama = request.POST['nama']
