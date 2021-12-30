@@ -73,7 +73,7 @@
                         </tr>
                     </thead> 
                     <tbody>
-                        {%for i in pembimbing %}
+                        {%for i in input_pemb %}
                       <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{i.pembimbing_1}}</td>
@@ -83,7 +83,7 @@
                         <td>
                             <a href="hapus-pembimbing/{{i.id}}"><button type="button" class="btn btn-danger">hapus</button></a>
                         </td>
-                    </tr>
+                     </tr>
                       {%endfor%}
                     </tbody>
                 </table>

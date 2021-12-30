@@ -19,18 +19,39 @@ class proposal(models.Model):
     nama = models.CharField(max_length=50)
     nim = models.IntegerField()
     judul = models.CharField(max_length=200)
-    pembimbing_1 = models.CharField(max_length=20)
-    pembimbing_2 = models.CharField(max_length=20)
+    pembimbing_1 = models.TextField(max_length=180)
+    pembimbing_2 = models.TextField(max_length=180)
 
 class ta (models.Model):
     nim = models.IntegerField()
     nama = models.CharField(max_length=50)
     judul = models.CharField(max_length=200)
-    pembimbing_1 = models.CharField(max_length=20)
-    pembimbing_2 = models.CharField(max_length=20)
+    pembimbing_1 = models.TextField(max_length=180)
+    pembimbing_2 = models.TextField(max_length=180)
+
 
     
+class bimbingan (models.Model):
+    nama = models.CharField(max_length=50)
+    nim = models.IntegerField()
+    fakultas = models.CharField(max_length=30)
+    prodi = models.CharField(max_length=30)
+    pembimbing_1 = models.CharField(max_length=20)
+    pembimbing_2 = models.CharField(max_length=20)
+    judul = models.CharField(max_length=500)
+    abstrak = models.CharField(max_length=5000)
+
 class sempro (models.Model):
+    nama = models.CharField(max_length=50)
+    nim = models.IntegerField()
+    fakultas = models.CharField(max_length=30)
+    prodi = models.CharField(max_length=30)
+    pembimbing_1 = models.CharField(max_length=20)
+    pembimbing_2 = models.CharField(max_length=20)
+    judul = models.CharField(max_length=500)
+    abstrak = models.CharField(max_length=5000)
+
+class sidang (models.Model):
     nama = models.CharField(max_length=50)
     nim = models.IntegerField()
     fakultas = models.CharField(max_length=30)

@@ -15,8 +15,7 @@ class Migration(migrations.Migration):
             name='Judul',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('judul_1', models.TextField(max_length=150)),
-                ('judul_2', models.TextField(max_length=150)),
+                ('judul_ta', models.TextField(max_length=150)),
             ],
         ),
         migrations.CreateModel(
