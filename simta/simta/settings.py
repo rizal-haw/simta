@@ -103,13 +103,18 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
-<<<<<<< HEAD
         'POST': '5432',
-=======
-        'PORT': '5432',
->>>>>>> 0bd8c0d01be79495cfdc96df7a364e28a681e9ba
     }
 }
+
+# Untuk Query SQL
+import psycopg2
+DB = psycopg2.connect(
+    host="localhost",
+    database="simta",
+    user="postgres",
+    password="postgres")
+cursor = DB.cursor()
 
 
 # Password validation

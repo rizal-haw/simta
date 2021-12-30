@@ -4,6 +4,7 @@ from django.views import View
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from simta.settings import cursor
 
 
 # @login_required(login_url=settings.LOGIN_URL)
@@ -15,10 +16,29 @@ def pembimbingViewPembimbing(request):
 
 # ---------------Halaman Pengajuan Judul-----------------
 
-# def pengajuanJudulViewPembimbing(request):
-#     data_judul = models.Judul.objects.all()
-#     konteks = {'data_judul': data_judul}
-#     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+def DataPengajuanJudul(request):
+    # Query menampilkan data diri mahasiswa
+    query = "SELECT mhs.nama, mhs.nim FROM public.tendik_mahasiswamodel mhs"
+    cursor.execute(query)
+    data_mhs = cursor.fetchone()
+
+    # Query menampilkan data judul inputan mahasiswa
+    query = "SELECT * FROM public.mahasiswa_judul"
+    cursor.execute(query)
+    data_judul = cursor.fetchmany(2)
+
+    # Query join
+    query = "SELECT mhs.nama, mhs.nim, j.judul_ta FROM public.pembimbing_datapengajuanjudul d JOIN public.tendik_mahasiswamodel mhs ON d.data_diri_id=mhs.id JOIN public.mahasiswa_judul j ON d.isi_judul_id=j.id"
+    cursor.execute(query)
+    data_pengajuan = cursor.fetchall()
+
+    data = {
+        'data_mhs': data_mhs,
+        'data_judul': data_judul,
+        'data_pengajuan': data_pengajuan,
+    }
+
+    return render(request, 'pembimbing/pengajuan-judul.html', {'data': data})
 
 def pengajuanJudulViewPembimbing(request):
     if request.method == 'POST':
