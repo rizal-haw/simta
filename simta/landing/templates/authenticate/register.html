@@ -1,42 +1,174 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    <div class="form-group first">
-        <label for="username">Username</label>
-        {{form.username}}
-    </div>
-    <div class="form-group first">
-        <label for="email">Email</label>
-        {{form.email}}
-    </div>
-    <div class="form-group last mb-4">
-        <label for="password">Password</label>
-        {{form.password1}}
-    </div>
-    <div class="form-group last mb-4">
-        <label for="password">Password</label>
-        {{form.password2}}
-    </div>
-    <input type="submit" value="Daftar">
-    <div class="d-flex mb-5 align-items-center">
-        <label class="control control--checkbox mb-0"><span class="caption">Tendik</span>
-            {{ form.is_tendik }}
-          <div class="control__indicator"></div>
-        </label>
+
+<style>
+ 
+.home-register{
+    height: 40vh;
+    width: 80vw;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right bottom, 
+    rgb(248, 244, 244)(250, 249, 249),
+    rgb(206, 203, 203)(20, 24, 23, 0.8)),;
+     background-position: top;
+     background-size: cover;
+     background-repeat: no-repeat;
+     position:relative;
+    
+}
+
+.main-register{
+    height: 600px;
+    width: 450px;
+    position: absolute;
+    top: 80%;
+    left: 96%;
+    transform: translate(-50%, -50%);
+    border: rgb(247, 247, 247);
+    background:rgb(244, 244, 247);
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+}
+
+.register-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 150px;
+    background: #198754;
+}
+
+.register-title h2{
+    text-align: center;
+    font-size: 2.0rem;
+    color: #fff;
+    font-weight: 300;
+}
+.form-register{
+    margin-top: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+}
+
+.form-register input ::placeholder {
+    font-size: 0.9rem;
+  color: rgb(243, 239, 239);
+}
+
+.form-register button{
+    margin-top: 15px;
+    padding: 10px 40px;
+    color: #fff;
+    border-radius: 40px;
+    background: #1988ff;
+    transition: 0.2s ease-in;
+    -webkit-transition: 0.2s ease-in;
+    -moz-transition: 0.2s ease-in;
+    -ms-transition: 0.2s ease-in;
+    -o-transition: 0.2s ease-in;
+    cursor: pointer;
+    border:none;
+}
+
+.form-register button:hover{
+    background: #007bff;
+}
+
+.register-terms{
+    width: 75%;
+    margin: 10px auto;
+}
+
+.register-terms p{
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.register-terms span{
+    color: #007bff;
+    cursor: pointer;
+}
+
+.foto{
+    width: 50%;
+    margin: 10px auto;
+    margin-inline-start:20%;
+    margin-left: 100px;
+}
+
+.foto2{
+  background-size: 100vmax;
+ 
+}
+
+</style>
+
+<form action="" method="post" class="home-register" >
+{% csrf_token %}
+  <section>
+    
+    <div>
+      <div>
+        <img src="/static/assets/img/simta01.png" alt="" class="foto" height="500px">
       </div>
-      <div class="d-flex mb-5 align-items-center">
-        <label class="control control--checkbox mb-0"><span class="caption">Mahasiswa</span>
-            {{ form.is_mhs }}
-          <div class="control__indicator"></div>
-        </label>
-      </div>
-      <div class="d-flex mb-5 align-items-center">
-        <label class="control control--checkbox mb-0"><span class="caption">Pembibmbing</span>
-            {{ form.is_pembimbing }}
-          <div class="control__indicator"></div>
-        </label>
-      </div>
+      
+    </div>
+      <div class="main-register ">
+          <div class="register-title">
+              <h2>registrasi</h2>
+          </div>
+          <div class="form-register ">
+              <div class="input">
+                <label type="text" name="username" id="user_name" placeholder="Usernam" >username</label>
+                {{form.username}}
+              </div>
+              <div class="input">
+                <label type="email" name="email"  placeholder="email">email</label>
+                {{form.email}}
+              </div>
+              <div class="input">
+                <label  type="password" name="password"  placeholder="password">password</label>
+                {{form.password1}}
+              </div>
+              <div class="input">
+                <label type="password" name="confirm_password"  placeholder="password again">password again</label>
+                {{form.password2}}
+              </div>
+  
+  
+              <div class="mb-2">
+
+                <button type="submit">login</button>
+              </div>
+              
+              <div class="d-flex justify-content-between ">
+                
+                    <label class="control control--checkbox mb-3"><span class="caption">Tendik</span>
+                        {{ form.is_tendik }}
+                    
+                    </label>
+
+                    <label class="control control--checkbox mb-3"><span class="caption">Mahasiswa</span>
+                        {{ form.is_mhs }}
+                    </label>
+                    <label class="control control--checkbox mb-3"><span class="caption">Pembibmbing</span>
+                        {{ form.is_pembimbing }}
+                    </label>
+              </div>
+        </div>
+              <div class="register-terms text-center">
+                  <hr>
+                    <h6 class="register-terms text-center mb-3">silakan mengisis data diatas. <a href="/login">login</a></h6>
+      
+              </div>
+  </div>
+  </section>
 </form>
+
 {% endblock %}
