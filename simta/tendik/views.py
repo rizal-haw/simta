@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views import View
 from . import models
-from mahasiswa import models as models_mhs
 from .forms import MahasiswaForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib import messages
+# from mahasiswa import models as models_mhs
 # from mahasiswa.models import Judul, pembimbing
 
 # @login_required(login_url=settings.LOGIN_URL)
@@ -48,10 +47,9 @@ def mahasiswaView(request):
         nim = request.POST['nim']
         prodi = request.POST['prodi']
         fakultas = request.POST['fakultas']
-        kelas = request.POST['kelas']
         semester = request.POST['semester']
         tahun_masuk = request.POST['tahun_masuk']
-        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, kelas=kelas, semester=semester, tahun_masuk=tahun_masuk)
+        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, semester=semester, tahun_masuk=tahun_masuk)
         messages.success(request, f'Data Mahasiswa telah ditambahkan')
         print(nim)
         
@@ -73,7 +71,7 @@ def editmahasiswa(request, id):
             nim = request.POST['nim'],
             prodi = request.POST['prodi'],
             fakultas = request.POST['fakultas'],
-            kelas = request.POST['kelas'],
+            # kelas = request.POST['kelas'],
             semester = request.POST['semester'],
             tahun_masuk = request.POST['tahun_masuk'],
         )
