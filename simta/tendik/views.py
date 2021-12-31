@@ -105,17 +105,17 @@ def editpembimbing(request, id):
 # ------------------------------------------------------------
 
 def pengajuanJudulView(request):
-    data_judul = models.Judul.objects.all()
+    # data_judul = models.Judul.objects.all()
     # data_pem = models_mhs.pembimbing.objects.all()
     # print(data_pem)
-    konteks = {'data_judul' : data_judul}
+    # konteks = {'data_judul' : data_judul}
     # konteks2 = {'datapem' : data_pem}
-    return render(request, 'tendik/pengajuanjudul.html', konteks)
+    return render(request, 'tendik/pengajuanjudul.html')
 
 def proposalView(request):
-    data_pembimbing = models.pembimbing.objects.all()
-    konteks2 = {'data_pembimbing' : data_pembimbing}
-    return render(request, 'tendik/proposal.html', konteks2)
+    # data_pembimbing = models.pembimbing.objects.all()
+    # konteks2 = {'data_pembimbing' : data_pembimbing}
+    return render(request, 'tendik/proposal.html')
 
 def tugasAkhirView(request):
     return render(request, 'tendik/tugas-akhir.html')
