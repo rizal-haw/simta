@@ -14,6 +14,34 @@ def dashboardViewMhs(request):
 
 # ---------------------Halaman Pembibmbing-------------------------------------
 
+def index(request):
+    mahasiswa = tendik_models.MahasiswaModel.objects.all()
+    pembimbing = tendik_models.PembimbingModel.objects.all()
+    pengajuan_judul = models.Judul.objects.all()
+    pengajuan_proposal = models.proposal.objects.all()
+    pengajuan_ta = models.ta.objects.all()
+    bimbingan = models.bimbingan.objects.all()
+
+
+    jml_mahasiswa = mahasiswa.count()
+    jml_pembimbing = pembimbing.count()
+    jml_pengajuan_judul = pengajuan_judul.count()
+    jml_pengajuan_proposal = pengajuan_proposal.count()
+    jml_pengajuan_ta = pengajuan_ta.count()
+    jml_bimbingan = bimbingan.count()
+    return render (request, 'mhs/index.html', {
+        'mahasiswa' : mahasiswa,
+        'pembimbing' : pembimbing,
+        'pengajuan_judul' : pengajuan_judul,
+        'pengajuan_proposal' : pengajuan_proposal,
+        'pengajuan_ta' : pengajuan_ta,
+        'bimbingan' : bimbingan,
+        'jml_mahasiswa' : jml_mahasiswa,
+        'jml_pembimbing' : jml_pembimbing,
+        'jml_pengajuan_judul' : jml_pengajuan_judul,
+        'jml_pengajuan_proposal' : jml_pengajuan_proposal,
+        'jml_pengajuan_ta' : jml_pengajuan_ta,
+        'jml_bimbingan' : jml_bimbingan })
 
 def pembimbingViewMhs(request):
     if request.POST:
@@ -140,26 +168,26 @@ def seminarproposalViewMhs(request):
         'input_pemb' : input_pembimbing })
 
 
-def bimbinganViewMhs(request):
-    if request.POST:
-        nama = request.POST['nama']
-        nim = request.POST['nim']
-        fakultas = request.POST['fakultas']
-        prodi = request.POST['prodi']
-        pembimbing_1 = request.POST['pembimbing_1']
-        pembimbing_2 = request.POST['pembimbing_2']
-        judul = request.POST['judul']
-        abstrak = request.POST['abstrak']
-        models.bimbingan.objects.create(
-            nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
-    data_bimbingan = models.bimbingan.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
-    print (data_bimbingan)
-    return render(request, 'mhs/bimbingan.html',{
-        'bimbingan': data_bimbingan ,
-        'data_pemb' : data_pembimbing,
-        'input_pemb' : input_pembimbing })
+# def bimbinganViewMhs(request):
+#     if request.POST:
+#         nama = request.POST['nama']
+#         nim = request.POST['nim']
+#         fakultas = request.POST['fakultas']
+#         prodi = request.POST['prodi']
+#         pembimbing_1 = request.POST['pembimbing_1']
+#         pembimbing_2 = request.POST['pembimbing_2']
+#         judul = request.POST['judul']
+#         abstrak = request.POST['abstrak']
+#         models.bimbingan.objects.create(
+#             nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
+#     data_bimbingan = models.bimbingan.objects.all()
+#     input_pembimbing = models.pembimbing.objects.all()
+#     data_pembimbing = PembimbingModel.objects.all()
+#     print (data_bimbingan)
+#     return render(request, 'mhs/bimbingan.html',{
+#         'bimbingan': data_bimbingan ,
+#         'data_pemb' : data_pembimbing,
+#         'input_pemb' : input_pembimbing })
 
 def sidangskripsiViewMhs(request):
     if request.POST:
