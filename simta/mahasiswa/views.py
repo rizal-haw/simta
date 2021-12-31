@@ -68,10 +68,10 @@ def pembimbingViewMhs(request):
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
-        judul_ta = request.POST['judul_ta']
-        # judul_2 = request.POST['judul_2']
+        judul_1 = request.POST['judul_1']
+        judul_2 = request.POST['judul_2']
         models.Judul.objects.create(
-            judul_ta=judul_ta)
+            judul_1=judul_1, judul_2=judul_2)
     data_judul = models.Judul.objects.all()
     penyetujuan_judul = PenyetujuanJudul.objects.all()
     return render(request, 'mhs/pengajuan-judul.html', {

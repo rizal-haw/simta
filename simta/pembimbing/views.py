@@ -4,8 +4,7 @@ from django.views import View
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from tendik import models as tendik_models
-from tendik.models import PembimbingModel
+from simta.settings import cursor
 
 
 # @login_required(login_url=settings.LOGIN_URL)
@@ -43,12 +42,25 @@ def pembimbingViewPembimbing(request):
 
 # ---------------Halaman Pengajuan Judul-----------------
 
-# def pengajuanJudulViewPembimbing(request):
-#     data_judul = models.Judul.objects.all()
-#     konteks = {'data_judul': data_judul}
-#     return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+# def DataPengajuanJudul(request):
+
+#     # Query join
+#     query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
+#     cursor.execute(query)
+#     data_pengajuan = cursor.fetchall()
+
+#     data = {
+#         'data_pengajuan': data_pengajuan,
+#     }
+
+#     return render(request, 'pembimbing/pengajuan-judul.html', {'data': data})
 
 def pengajuanJudulViewPembimbing(request):
+    # Query join
+    query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
+    cursor.execute(query)
+    data_pengajuan = cursor.fetchall()
+
     if request.method == 'POST':
         get_judul = request.POST['judul']
         keterangan = request.POST['keterangan']
@@ -58,8 +70,9 @@ def pengajuanJudulViewPembimbing(request):
 
     data_judul = models.Judul.objects.all()
     penyetujuan = models.PenyetujuanJudul.objects.all()
-    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan}
-    return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan, 'data_pengajuan': data_pengajuan}
+
+    return render(request, 'pembimbing/pengajuan-judul.html', {'konteks' : konteks})
 
 # Detail Judul
 def detailJudul(request, id):
