@@ -4,54 +4,67 @@
 
   <main>
       <div class="container-fluid px-4">
-          <h1 class="mt-4">Dashboard</h1>
+          <h1 class="mt-4">Dashboard Mahasiswa</h1>
           <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item active">Dashboard</li>
           </ol>
           <div class="row">
-              <div class="col-xl-3 col-md-6">
-                  <div class="card bg-primary text-white mb-4">
-                      <div class="card-body">Mahasiswa Aktif</div>
-                      <div class="card-footer d-flex align-items-center justify-content-between">
-                          <a class="small text-white stretched-link" href="#">View Details</a>
-                          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-3 col-md-6">
-                  <div class="card bg-warning text-white mb-4">
-                      <div class="card-body">Dosen Pembimbing</div>
-                      <div class="card-footer d-flex align-items-center justify-content-between">
-                          <a class="small text-white stretched-link" href="#">View Details</a>
-                          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-4 col-md-6">
                   <div class="card bg-success text-white mb-4">
-                      <div class="card-body">Waktu Penggunaan</div>
-                      <div class="card-footer d-flex align-items-center justify-content-between">
-                          <a class="small text-white stretched-link" href="#">View Details</a>
-                          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                      </div>
+                      <center>
+                      <div class="card-body">Mahasiswa Aktif</div>
+                          <h1>{{jml_mahasiswa}}</h1>
+                      </center>
                   </div>
               </div>
-              <div class="col-xl-3 col-md-6">
-                  <div class="card bg-danger text-white mb-4">
-                      <div class="card-body">Penggunaan Data(up/down)</div>
-                      <div class="card-footer d-flex align-items-center justify-content-between">
-                          <a class="small text-white stretched-link" href="#">View Details</a>
-                          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                      </div>
+              <div class="col-xl-4 col-md-6">
+                  <div class="card bg-success text-white mb-4">
+                    <center>
+                      <div class="card-body">Dosen Pembimbing</div>
+                      <h1>{{jml_pembimbing}}</h1>
+                    </center>
                   </div>
               </div>
+              <div class="col-xl-4 col-md-6">
+                  <div class="card bg-success text-white mb-4">
+                    <center>
+                      <div class="card-body">Pengajuan Judul</div>
+                        <h1>{{jml_pengajuan_judul}}</h1>
+                    </center>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                  <div class="card bg-success text-white mb-4">
+                    <center>
+                      <div class="card-body">Pengajuan Proposal</div>
+                        <h1>{{jml_pengajuan_proposal}}</h1>
+                    </center>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                  <div class="card bg-success text-white mb-4">
+                    <center>
+                      <div class="card-body">Pengajuan Tugas Akhir</div>
+                        <h1>{{jml_pengajuan_ta}}</h1>
+                    </center>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-md-6">
+                  <div class="card bg-success text-white mb-4">
+                    <center>
+                      <div class="card-body">Bimbingan</div>
+                        <h1>{{jml_bimbingan}}</h1>
+                    </center>
+                  </div>
+              </div>
+              
           </div>
           <div class="row">
               <div class="col-xl-6">
                   <div class="card mb-4">
                       <div class="card-header">
                           <i class="fas fa-chart-area me-1"></i>
-                          Area Chart Example
+                          informasi Akademik
                       </div>
                       <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                   </div>
@@ -60,55 +73,13 @@
                   <div class="card mb-4">
                       <div class="card-header">
                           <i class="fas fa-chart-bar me-1"></i>
-                          mahasiswa 
+                          Informasi non Akademik
                       </div>
-                      <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
-                        
-                    </div>
+                      <div class="card-body"><canvas id="myBarChart" width="100%" height="40">{{jml_mahasiswa}}</canvas>
+                      </div>
                       
-                  </div>
-              </div>
-          </div>
-          <div class="card mb-4">
-              <div class="card-header">
-                  <i class="fas fa-table me-1"></i>
-                  Data
-              </div>
-              <div class="card-body">
-                  <table id="datatablesSimple">
-                      <thead>
-                          <tr>
-                              <th>Name</th>
-                              <th>Position</th>
-                              <th>Office</th>
-                              <th>Age</th>
-                              <th>Start date</th>
-                              <th>Salary</th>
-                          </tr>
-                      </thead>
-                      <tfoot>
-                          <tr>
-                              <th>Name</th>
-                              <th>Position</th>
-                              <th>Office</th>
-                              <th>Age</th>
-                              <th>Start date</th>
-                              <th>Salary</th>
-                          </tr>
-                      </tfoot>
-                      <tbody>
-                          <tr>
-                              <td>Tiger Nixon</td>
-                              <td>System Architect</td>
-                              <td>Edinburgh</td>
-                              <td>61</td>
-                              <td>2011/04/25</td>
-                              <td>$320,800</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </main>
+                    </div>
+                </div>
+            </div> 
+        </main>
 {% endblock %}

@@ -12,7 +12,6 @@ urlpatterns = [
     path('pengajuan-proposal', views.pengajuanProposalViewPembimbing, name='pengajuan-propposal'),
     path('pengajuan-ta', views.pengajuanTAViewPembimbing, name='pengajuan-ta'),
     path('permintaan-bimbingan', views.permintaanBimbinganViewPembimbing, name='Permintaan-bimbingan'),
-    path('bimbingan-proposal', views.bimbinganProposalProposalViewPembimbing, name='bimbingan-proposal'),
     path('bimbingan-ta', views.bimbinganTAViewPembimbing, name='bimbingan-ta'),
     path('jadwal', views.jadwalTAViewPembimbing, name='jadwal'),
     path('panduan', views.panduanTAViewPembimbing, name='panduan'),

@@ -107,6 +107,15 @@ DATABASES = {
     }
 }
 
+# Untuk Query SQL
+import psycopg2
+DB = psycopg2.connect(
+    host="localhost",
+    database="simta",
+    user="postgres",
+    password="postgres")
+cursor = DB.cursor()
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

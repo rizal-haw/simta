@@ -1,85 +1,205 @@
 {% extends 'main-mhs.html' %}
 
 {% block content %}
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Sidang skripsi</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">sidang-skripsi skripsi</li>
-    </ol>
-    <div class="card mb-4">
-        <div class="card-body btn-white">
-            <var>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Sidang Skripsi</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Pendaftaran</li>
+            <li class="breadcrumb-item active">Sidang Skripsi</li>
+        </ol>
+        <div class="card mb-4">
+            <!-- <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Data Dosen Pembimbing
+            </div> -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+                {% endfor %}
+            {% endif %}
 
-                silakan mengisi data terlebih dahulu.
-            </var> 
-
-            <a target="_blank" href="https://datatables.net/">info</a>
+            <div class="card-header d-flex justify-content-between card-header">
+                <div class="">
+                    <i class="fas fa-table me-1"></i>
+                   
+                        Dosen Pembibmbing    
+                   
+                </div>
+                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Tambah Data Pembimbing</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" >
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="mx-3">
+                                        <label for="disabledTextInput" class="form-label">Nama</label>
+                                        <input type="text" name="nama" id="disabledTextInput" class="form-control " placeholder="nama">
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="mx-3">
+                                        <label for="disabledTextInput" class="form-label">NIM</label>
+                                        <input type="text" name="nim" id="disabledTextInput" class="form-control" placeholder="nim">
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="form-select" aria-label="Default select example" name="fakultas">
+                                            <option selected>Fakultas</option>
+                                            <option value="FTI">FTI</option>
+                                            <option value="Pendidikan">Pendidikan</option>
+                                            <option value="Ekonomi">Ekonomi</option>
+                                          </select>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="form-select" aria-label="Default select example" name="prodi"> 
+                                            <option selected>Prodi</option>
+                                            <option value="Teknik Komputer">Teknik Komputer</option>
+                                            <option value="Informatika">Informatika</option>
+                                            <option value="Teknik Elektro">Teknik Elektro</option>
+                                          </select>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_1">
+                                            <option selected>Pembimbing 1</option>
+                                            {%for i in data_pemb%}
+                                            <option value="{{i.nama}}">{{i.nama}}</option>
+                                            {%endfor%}
+                                        </select>
+                                        
+                                        </div>
+                                </div>
+                                <div class="form-floating mb-3" style="display: inline-block; width: 49%;">
+                                    <div class="dropdown d-grid gap-2 ">
+                                        <select class="mb-3 form-select" aria-label="Default select example" name="pembimbing_2" >
+                                            <option selected>Pembimbing 2</option>
+                                            {%for i in data_pemb%}
+                                            <option value="{{i.nama}}">{{i.nama}}</option>
+                                            {%endfor%}
+                                          </select>
+                                    </div>
+                                </div>
+                                    <hr>
+                                
+                                <div>
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" name="judul" class="form-label">Judul</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul proposal" name="judul">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label">Unggah file</label>
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                  </div>
+                                <div class="">
+                                    <label for="message-text" name="abstrak" class="col-form-label">Abstrak</label>
+                                    <textarea class="form-control" id="message-text" name="abstrak"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
+                                  </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 <div>
+                     <div>
+                         <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button"><span>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span><span>
+                            Tambah data
+                        </span></a>
+                     </div>
+                    
+                 </div>
             
-        </div> 
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead style="background-color: #198754">
+                        <tr>
+                            <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
+                            <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
+                            <th style="width: 7%; text-align: center; color: aliceblue;">FAKULTAS</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">PRODI</th>
+                            <th style="width: 10%; text-align: center; color: aliceblue">PEMBIMBING 1</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">PEMBIMBING 2</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">JUDUL</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">ABSTRAK</th>
+                            <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                        {% for i in sidang%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.nama}}</td>
+                            <td>{{i.nim}}</td>
+                            <td>{{i.fakultas}}</td>
+                            <td>{{i.prodi}}</td>
+                            <td>{{i.pembimbing_1}}</td>
+                            <td>{{i.pembimbing_2}}</td>
+                            <td>{{i.judul}}</td>
+                            <td>{{i.abstrak}}</td>
+                            <td>
+                                <div class="d-flex justify-content-between ">
+            
+                                    <div class="mx-3" >
+    
+                                        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModal" role="button"><span>
+                                               <i class="" aria-hidden="true"></i>
+                                        </span><span>
+                                        Detail
+                                        </span></a>
+                                    </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Informasi</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form>
+                                    <fieldset disabled>
+                                      <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">Status</label>
+                                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                                      </div>
+                                      <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Feedback</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                      </div>
+                                    </fieldset>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-    <form>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">Nama</label>
-                <input type="text" id="disabledTextInput" class="form-control " placeholder="Nama">
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">NIM</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="Nim">
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">Fakultas</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="fakultas">
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">Prodi</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="prodi">
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">Pembimbing 1</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbin 1">
-            </div>
-        </div>
-        <div class="form-floating mb-3" style="display: inline-block; width: 48%;">
-            <div class="mx-3">
-                <label for="disabledTextInput" class="form-label">Pembimbing 2</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="pembimbing 2">
-            </div>
-        </div>
-            <hr>
-        
-        <div>
-            <div class="mb-3">
-                <label for="disabledTextInput" class="form-label">Judul</label>
-                <input type="text" id="disabledTextInput" class="form-control" placeholder="Judul skripsi">
-            </div>
-        </div>
-        <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Unggah file</label>
-            <input class="form-control" type="file" id="formFileMultiple" multiple>
-          </div>
-        <div class="">
-            <label for="message-text" class="col-form-label">Abstrak</label>
-            <textarea class="form-control" id="message-text"></textarea>
-        </div>
-        
-       
-
-    </form>
-    </div>
-    <div class="modal-footer">
-    <button class="btn btn-light" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">close</button>
-    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">submit</button>
-    </div>
-</div>
+</main>>
 {%endblock%}
