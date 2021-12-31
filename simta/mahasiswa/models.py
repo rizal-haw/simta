@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
+from tendik.models import MahasiswaModel
 
 
 class pembimbing(models.Model):
@@ -13,6 +14,7 @@ class Judul(models.Model):
     # id_pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
     judul_1 = models.TextField(max_length=150)
     judul_2 = models.TextField(max_length=150)
+    mhs = models.ForeignKey(MahasiswaModel, on_delete=models.CASCADE, default=1)
     # pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
 
 class proposal(models.Model):

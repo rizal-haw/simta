@@ -16,31 +16,25 @@ def pembimbingViewPembimbing(request):
 
 # ---------------Halaman Pengajuan Judul-----------------
 
-def DataPengajuanJudul(request):
-    # Query menampilkan data diri mahasiswa
-    query = "SELECT mhs.nama, mhs.nim FROM public.tendik_mahasiswamodel mhs"
-    cursor.execute(query)
-    data_mhs = cursor.fetchone()
+# def DataPengajuanJudul(request):
 
-    # Query menampilkan data judul inputan mahasiswa
-    query = "SELECT * FROM public.mahasiswa_judul"
-    cursor.execute(query)
-    data_judul = cursor.fetchmany(2)
+#     # Query join
+#     query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
+#     cursor.execute(query)
+#     data_pengajuan = cursor.fetchall()
 
+#     data = {
+#         'data_pengajuan': data_pengajuan,
+#     }
+
+#     return render(request, 'pembimbing/pengajuan-judul.html', {'data': data})
+
+def pengajuanJudulViewPembimbing(request):
     # Query join
-    query = "SELECT mhs.nama, mhs.nim, j.judul_ta FROM public.pembimbing_datapengajuanjudul d JOIN public.tendik_mahasiswamodel mhs ON d.data_diri_id=mhs.id JOIN public.mahasiswa_judul j ON d.isi_judul_id=j.id"
+    query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
     cursor.execute(query)
     data_pengajuan = cursor.fetchall()
 
-    data = {
-        'data_mhs': data_mhs,
-        'data_judul': data_judul,
-        'data_pengajuan': data_pengajuan,
-    }
-
-    return render(request, 'pembimbing/pengajuan-judul.html', {'data': data})
-
-def pengajuanJudulViewPembimbing(request):
     if request.method == 'POST':
         get_judul = request.POST['judul']
         keterangan = request.POST['keterangan']
@@ -50,8 +44,9 @@ def pengajuanJudulViewPembimbing(request):
 
     data_judul = models.Judul.objects.all()
     penyetujuan = models.PenyetujuanJudul.objects.all()
-    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan}
-    return render(request, 'pembimbing/pengajuan-judul.html', konteks)
+    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan, 'data_pengajuan': data_pengajuan}
+
+    return render(request, 'pembimbing/pengajuan-judul.html', {'konteks' : konteks})
 
 # Detail Judul
 def detailJudul(request, id):

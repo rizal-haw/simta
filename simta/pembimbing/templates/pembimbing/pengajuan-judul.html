@@ -9,13 +9,13 @@
             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
             <li class="breadcrumb-item active">Pengajuan Judul</li>
         </ol>
-        <div class="card mb-4">
+        <!-- <div class="card mb-4">
             <div class="card-body">
                 DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
                 <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
                 .
             </div>
-        </div>
+        </div> -->
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -42,8 +42,9 @@
 
                           <select class="form-select" name="judul">
                             <option selected>Pilih</option>
-                            {% for i in data_judul %}
-                            <option value="{{i.id}}">{{i.judul_ta}}</option>
+                            {% for i in konteks.data_judul %}
+                            <option value="{{i.id}}">{{i.judul_1}}</option>
+                            <option value="{{i.id}}">{{i.judul_2}}</option>
                             {% endfor %}
                           </select>
 <!--                           
@@ -117,13 +118,13 @@
                             </td>
                         </tr>
                        -->
-                       {% for i in data.data_pengajuan%}
+                       {% for i in konteks.data_pengajuan%}
                       <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{i.0}}</td>
                             <td>{{i.1}}</td>
                             <td>{{i.2}}</td>
-                            <td>a</td>
+                            <td>{{i.3}}</td>
                             <td>
                                 <div class="d-flex flex-column">
                                       <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
@@ -151,10 +152,10 @@
                       
                   </thead>
                   <tbody>
-                      {% for i in penyetujuan %}
+                      {% for i in konteks.penyetujuan %}
                       <tr>
                           <td>{{forloop.counter}}</td>
-                          <td>{{i.judul.judul_ta}}</td>
+                          <td>{{i.judul.judul_}}</td>
                           <td>{{i.keterangan}}</td>
                           <td>belum</td>
                           <td>
