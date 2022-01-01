@@ -4,9 +4,8 @@ from django.views import View
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+
 from tendik import models as tendik_models
-from tendik.models import PembimbingModel
-from pembimbing.models import PenyetujuanJudul
 
 # @login_required(login_url=settings.LOGIN_URL)
 def dashboardViewMhs(request):
@@ -20,13 +19,10 @@ def pembimbingViewMhs(request):
 
         pembimbing_1 = request.POST['pembimbing_1']
         pembimbing_2 = request.POST['pembimbing_2']
-        models.pembimbing.objects.create(
+        models.Pembimbing.objects.create(
             pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2,)
-        print(pembimbing_1)
-        print(pembimbing_2)
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing =  PembimbingModel.objects.all()
-    print(data_pembimbing)
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing =  models.DosenPemb.objects.all()
     return render(request,
      'mhs/pembimbing.html', {
         'input_pemb' : input_pembimbing,
@@ -45,10 +41,10 @@ def pengajuanJudulViewMhs(request):
         models.Judul.objects.create(
             judul_1=judul_1, judul_2=judul_2)
     data_judul = models.Judul.objects.all()
-    penyetujuan_judul = PenyetujuanJudul.objects.all()
+    # penyetujuan_judul = PenyetujuanJudul.objects.all()
     return render(request, 'mhs/pengajuan-judul.html', {
         'judul': data_judul,
-        'penyetujuan' : penyetujuan_judul
+        # 'penyetujuan' : penyetujuan_judul
     })
 
 def hapusJudul(request, id):
@@ -56,7 +52,7 @@ def hapusJudul(request, id):
     return redirect('/mhs/pengajuan-judul')
 
 def hapusPembimbing(request, id):
-    models.pembimbing.objects.filter(pk =id).delete()
+    models.Pembimbing.objects.filter(pk =id).delete()
     return redirect('/mhs/pembimbing')
     
 
@@ -82,12 +78,12 @@ def proposalViewMhs(request):
     # print(data_pembimbing)
     # return render(request, 'mhs/pembimbing.html', {
     #     'pembimbing': data_pembimbing
-        models.proposal.objects.create(
+        models.Proposal.objects.create(
          nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
          
-    data_proposal = models.proposal.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
+    data_proposal = models.Proposal.objects.all()
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing = models.DosenPemb.objects.all()
     print(data_proposal)
     return render(request, 'mhs/proposal.html',{
     'proposal': data_proposal,
@@ -109,8 +105,8 @@ def TAViewMhs(request):
          nama = nama, nim = nim, judul= judul, pembimbing_1 = pembimbing_1, pembimbing_2 = pembimbing_2)
          
     data_ta = models.ta.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing = models.DosenPemb.objects.all()
     print(data_ta)
     return render(request, 'mhs/tugas-akhir.html', {
     'ta': data_ta,
@@ -131,8 +127,8 @@ def seminarproposalViewMhs(request):
             nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
 
     data_sempro = models.sempro.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing = models.DosenPemb.objects.all()
     print (data_sempro)
     return render(request, 'mhs/seminar-proposal.html',{
         'sempro': data_sempro,
@@ -153,8 +149,8 @@ def bimbinganViewMhs(request):
         models.bimbingan.objects.create(
             nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
     data_bimbingan = models.bimbingan.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing = models.DosenPemb.objects.all()
     print (data_bimbingan)
     return render(request, 'mhs/bimbingan.html',{
         'bimbingan': data_bimbingan ,
@@ -174,8 +170,8 @@ def sidangskripsiViewMhs(request):
         models.sidang.objects.create(
             nama=nama, nim=nim, fakultas=fakultas, prodi=prodi, pembimbing_1=pembimbing_1, pembimbing_2=pembimbing_2, judul=judul, abstrak=abstrak)
     data_sidang = models.sidang.objects.all()
-    input_pembimbing = models.pembimbing.objects.all()
-    data_pembimbing = PembimbingModel.objects.all()
+    input_pembimbing = models.Pembimbing.objects.all()
+    data_pembimbing = models.DosenPemb.objects.all()
     print (data_sidang)
     return render(request, 'mhs/sidang-skripsi.html',{
         'sidang': data_sidang ,

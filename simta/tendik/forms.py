@@ -1,10 +1,10 @@
 from django import forms
 from django.db.models import fields
-from .models import MahasiswaModel
+from .models import Mahasiswa
 
 class MahasiswaForm(forms.ModelForm):
     class Meta:
-        model = MahasiswaModel
+        model = Mahasiswa
 
         fields = [
             "nama",

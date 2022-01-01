@@ -4,16 +4,8 @@ from django.db.models.deletion import CASCADE
 from django.apps import apps
 from django.db.models.expressions import Case
 from mahasiswa.models import Judul, Proposal, Ta
-from tendik.models import MahasiswaModel
+from tendik.models import Mahasiswa
 
-# class DataPengajuanJudul(models.Model):
-#     data_diri = models.ForeignKey(MahasiswaModel, on_delete=CASCADE)
-#     isi_judul = models.ForeignKey(Judul, on_delete=CASCADE)
-
-
-class PenyetujuanJudul(models.Model):
-    judul = models.ForeignKey(Judul, on_delete=CASCADE)
-    keterangan = models.TextField(max_length=500)
 
 class JadwalBimbingan(models.Model):
     date = models.DateField()

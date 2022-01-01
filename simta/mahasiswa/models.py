@@ -1,19 +1,24 @@
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
+from tendik.models import Mahasiswa
+from tendik.models import DosenPemb
 
 
-class pembimbing(models.Model):
-    pembimbing_1 = models.TextField(max_length=180)
-    pembimbing_2 = models.TextField(max_length=180)
-    # pemb = models.ForeignKey(tendik_models, on_delete=models.CASCADE, related_name='pembimbing')
+class Pembimbing(models.Model):
+    pembimbing_1 = models.TextField(max_length=180, default="")
+    pembimbing_2 = models.TextField(max_length=180, default="")
+    id_pemb = models.ForeignKey(DosenPemb, on_delete=models.CASCADE, related_name='Dosen', blank=True, null=True)
 
         
 class Judul(models.Model):
-    # id_pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
-    judul_1 = models.TextField(max_length=150)
-    judul_2 = models.TextField(max_length=150)
-    # pembimbing = models.ForeignKey(pembimbing, on_delete=models.DO_NOTHING, null=True, blank=True)
+    judul_1 = models.TextField(max_length=150, default="")
+    judul_2 = models.TextField(max_length=150, default="")
+    status_judul = models.CharField(max_length=20, default="")
+    date_judul = models.DateField(blank=True, null=True)
+    date_disetujui = models.DateField(blank=True, null=True)
+    id_pembimbing = models.ForeignKey(Pembimbing, on_delete=models.CASCADE, null=True, blank=True)
+    id_mhs = models.ForeignKey(Mahasiswa, on_delete=CASCADE, blank=True, null=True)
 
 class Proposal(models.Model):
     nama = models.CharField(max_length=50)

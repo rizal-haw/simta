@@ -1,5 +1,5 @@
 from django.urls import path
-from mahasiswa.views import *
+# from mahasiswa.views import *
 from . import views
 
 urlpatterns = [

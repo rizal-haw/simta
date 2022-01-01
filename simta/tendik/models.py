@@ -3,16 +3,16 @@ from django.db.models.base import Model
 from django.db.models.fields import IntegerField
 # from mahasiswa.models import Judul, pembimbing
 
-class PembimbingModel(models.Model):
+class DosenPemb(models.Model):
     nip = models.IntegerField(unique=True)
     nidn = models.IntegerField()
     hp = models.BigIntegerField()
-    nama = models.CharField(max_length=50)
-    prodi = models.CharField(max_length=20)
+    nama = models.CharField(max_length=50, default="")
+    prodi = models.CharField(max_length=20, default="")
     # status = models.CharField(max_length=50)
     
 
-class MahasiswaModel(models.Model):
+class Mahasiswa(models.Model):
     nim = models.IntegerField(unique=True)
     nama = models.CharField(max_length=50)
     prodi = models.CharField(max_length=20)

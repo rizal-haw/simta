@@ -23,9 +23,9 @@ def pembimbingView(request):
         nidn = request.POST['nidn']
         hp = request.POST['hp']
         prodi = request.POST['prodi']
-        models.PembimbingModel.objects.create(nama=nama, nip=nip, nidn=nidn, hp=hp, prodi=prodi)
+        models.DosenPemb.objects.create(nama=nama, nip=nip, nidn=nidn, hp=hp, prodi=prodi)
         messages.success(request, f'Data pembimbing berhasil ditambahkan')
-    pembibmbing_table = models.PembimbingModel.objects.all()
+    pembibmbing_table = models.DosenPemb.objects.all()
     return render(request, 'tendik/pembimbing.html', {
         'pemb_table': pembibmbing_table
     })
@@ -33,7 +33,7 @@ def pembimbingView(request):
 # Hapus
 
 def pembimbingHapus(request, id):
-    models.PembimbingModel.objects.filter(pk =id).delete()
+    models.DosenPemb.objects.filter(pk =id).delete()
     return redirect('/tendik/pembimbing')
 
 # ------------------------------------------------------------------------------
@@ -49,24 +49,24 @@ def mahasiswaView(request):
         fakultas = request.POST['fakultas']
         semester = request.POST['semester']
         tahun_masuk = request.POST['tahun_masuk']
-        models.MahasiswaModel.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, semester=semester, tahun_masuk=tahun_masuk)
+        models.Mahasiswa.objects.create(nama=nama, nim=nim, prodi=prodi, fakultas=fakultas, semester=semester, tahun_masuk=tahun_masuk)
         messages.success(request, f'Data Mahasiswa telah ditambahkan')
         print(nim)
         
-    mhs_table = models.MahasiswaModel.objects.all()
+    mhs_table = models.Mahasiswa.objects.all()
     return render(request, 'tendik/mahasiswa.html', {
         'tabel_mhs': mhs_table
     })
 
     # Hapus Data
 def mahasiswaHapus(request, id):
-    models.MahasiswaModel.objects.filter(pk=id).delete()
+    models.Mahasiswa.objects.filter(pk=id).delete()
     return redirect('/tendik/mahasiswa')
 
     # edit mahasiswa
 def editmahasiswa(request, id):
     if request.POST:
-        models.MahasiswaModel.objects.filter(pk=id).update(
+        models.Mahasiswa.objects.filter(pk=id).update(
             nama = request.POST['nama'],
             nim = request.POST['nim'],
             prodi = request.POST['prodi'],
@@ -76,7 +76,7 @@ def editmahasiswa(request, id):
             tahun_masuk = request.POST['tahun_masuk'],
         )
         return redirect ('/tendik/mahasiswa')
-    mhs_update = models.MahasiswaModel.objects.filter(pk=id).first()
+    mhs_update = models.Mahasiswa.objects.filter(pk=id).first()
     print(mhs_update)
     return render(request, 'tendik/editmahasiswa.html', {
         'tabel_mhs': mhs_update
@@ -86,7 +86,7 @@ def editmahasiswa(request, id):
     # edit pembimbing
 def editpembimbing(request, id):
     if request.POST:
-        models.PembimbingModel.objects.filter(pk=id).update(
+        models.DosenPemb.objects.filter(pk=id).update(
             nama = request.POST['nama'],
             nip = request.POST['nip'],
             nidn = request.POST['nidn'],
@@ -94,7 +94,7 @@ def editpembimbing(request, id):
             prodi = request.POST['prodi'],
         )
         return redirect ('/tendik/pembimbing')
-    pembimbing_update = models.PembimbingModel.objects.filter(pk=id).first()
+    pembimbing_update = models.DosenPemb.objects.filter(pk=id).first()
     print(pembimbing_update)
     return render(request, 'tendik/editpembimbing.html', {
         'tabel_mhs': pembimbing_update

@@ -31,7 +31,7 @@ def pembimbingViewPembimbing(request):
 
 def pengajuanJudulViewPembimbing(request):
     # Query join
-    query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
+    query = "SELECT m.nama, m.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j join public.tendik_mahasiswa as m on m.id=j.id_mhs_id"
     cursor.execute(query)
     data_pengajuan = cursor.fetchall()
 
@@ -43,8 +43,7 @@ def pengajuanJudulViewPembimbing(request):
         models.PenyetujuanJudul.objects.create(judul=judul_input, keterangan=keterangan)
 
     data_judul = models.Judul.objects.all()
-    penyetujuan = models.PenyetujuanJudul.objects.all()
-    konteks = {'data_judul' : data_judul, 'penyetujuan' : penyetujuan, 'data_pengajuan': data_pengajuan}
+    konteks = {'data_judul' : data_judul, 'data_pengajuan': data_pengajuan}
 
     return render(request, 'pembimbing/pengajuan-judul.html', {'konteks' : konteks})
 
