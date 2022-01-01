@@ -1,3 +1,4 @@
 sidebarnya masih jelek
 messege alert untukk setiap operasi crud
 ngeppush lagi karena perlu
+update: kok gak kebaca github commit sebelumnya
