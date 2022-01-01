@@ -3,6 +3,10 @@
 {% block content %}
 
 <main class="form-signin">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4bd05cf9c50b0056d656bedeeb8790f632163f64
   
   
     <h1 class="h3 mb-3 fw-normal text-center">Silakan login</h1>
@@ -23,6 +27,26 @@
         <div class="form-group last mb-4">
           <label for="username">Password</label>
           {{ form.password }}
+<<<<<<< HEAD
+          <h6 toggle="#password-field" class="fa fa-eye fa-lg show-hide" id="togglePassword"></h6>
+          
+
+    
+          
+        </div>
+
+
+  
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+    <p class="mt-5 mb-3 text-center">&copy; 2021–2024</p>
+
+=======
         </div>
         <div class="checkbox mb-3">
           <label>
@@ -33,7 +57,19 @@
         <p class="mt-5 mb-3 text-center">&copy; 2021-2024</p>
     </form>
     
+>>>>>>> 4bd05cf9c50b0056d656bedeeb8790f632163f64
 </main>
 
-
+    <script>
+      $(".show-hide").click(function () {
+ 
+ $(this).toggleClass("fa-eye fa-eye-slash");
+ var input = $($(this).attr("toggle"));
+ if (input.attr("type") == "password") {
+     input.attr("type", "text");
+ } else {
+     input.attr("type", "password");
+ }
+});
+    </script>
 {% endblock %}

@@ -13,6 +13,34 @@ def dashboardViewMhs(request):
 
 # ---------------------Halaman Pembibmbing-------------------------------------
 
+def index(request):
+    mahasiswa = tendik_models.MahasiswaModel.objects.all()
+    pembimbing = tendik_models.PembimbingModel.objects.all()
+    pengajuan_judul = models.Judul.objects.all()
+    pengajuan_proposal = models.proposal.objects.all()
+    pengajuan_ta = models.ta.objects.all()
+    bimbingan = models.bimbingan.objects.all()
+
+
+    jml_mahasiswa = mahasiswa.count()
+    jml_pembimbing = pembimbing.count()
+    jml_pengajuan_judul = pengajuan_judul.count()
+    jml_pengajuan_proposal = pengajuan_proposal.count()
+    jml_pengajuan_ta = pengajuan_ta.count()
+    jml_bimbingan = bimbingan.count()
+    return render (request, 'mhs/index.html', {
+        'mahasiswa' : mahasiswa,
+        'pembimbing' : pembimbing,
+        'pengajuan_judul' : pengajuan_judul,
+        'pengajuan_proposal' : pengajuan_proposal,
+        'pengajuan_ta' : pengajuan_ta,
+        'bimbingan' : bimbingan,
+        'jml_mahasiswa' : jml_mahasiswa,
+        'jml_pembimbing' : jml_pembimbing,
+        'jml_pengajuan_judul' : jml_pengajuan_judul,
+        'jml_pengajuan_proposal' : jml_pengajuan_proposal,
+        'jml_pengajuan_ta' : jml_pengajuan_ta,
+        'jml_bimbingan' : jml_bimbingan })
 
 def pembimbingViewMhs(request):
     if request.POST:
