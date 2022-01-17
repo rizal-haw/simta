@@ -2,3 +2,13 @@ sidebarnya masih jelek
 messege alert untukk setiap operasi crud
 ngeppush lagi karena perlu
 update: kok gak kebaca github commit sebelumnya
+
+Untuk penyetujuan judul
+Ketika pilihan dosen pembimbing sama dengan judul 1 maka update table judul dengan status judul 1 disetujui
+elseif pilihan dosen pembimbing sama dengan judul 1 maka update table judul dengan status judul 1 disetujui
+else judul ditolak
+
+Pengajuan Judul: minimal ada latar belakang, batasan permasalahan (Rumusan masalah)
+
+
+Data dosen meminta dari database kampus

@@ -42,31 +42,20 @@ def pembimbingViewPembimbing(request):
 
 # ---------------Halaman Pengajuan Judul-----------------
 
-# def DataPengajuanJudul(request):
-
-#     # Query join
-#     query = "SELECT mhs.nama, mhs.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j JOIN public.tendik_mahasiswamodel as mhs ON j.mhs_id=mhs.id "
-#     cursor.execute(query)
-#     data_pengajuan = cursor.fetchall()
-
-#     data = {
-#         'data_pengajuan': data_pengajuan,
-#     }
-
-#     return render(request, 'pembimbing/pengajuan-judul.html', {'data': data})
-
 def pengajuanJudulViewPembimbing(request):
     # Query join
-    query = "SELECT m.nama, m.nim, j.judul_1, j.judul_2 FROM public.mahasiswa_judul as j join public.tendik_mahasiswa as m on m.id=j.id_mhs_id"
+    query = "SELECT m.nama, m.nim, j.judul, j.status_judul FROM public.mahasiswa_judul as j join public.tendik_mahasiswa as m on m.id=j.id_mhs_id"
     cursor.execute(query)
     data_pengajuan = cursor.fetchall()
 
-    if request.method == 'POST':
+    if request.POST:
         get_judul = request.POST['judul']
+        get_tolak = request.POST['tolak']
         keterangan = request.POST['keterangan']
 
         judul_input = models.Judul.objects.filter(id=get_judul).first()
-        models.PenyetujuanJudul.objects.create(judul=judul_input, keterangan=keterangan)
+        models.Judul.objects.create(judul=judul_input, tolak = get_tolak, keterangan = keterangan)
+        # models.PenyetujuanJudul.objects.create(judul=judul_input, keterangan=keterangan)
 
     data_judul = models.Judul.objects.all()
     konteks = {'data_judul' : data_judul, 'data_pengajuan': data_pengajuan}

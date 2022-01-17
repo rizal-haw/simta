@@ -27,20 +27,31 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalToggleLabel">silakan isi data terlebih dahulu</h5>
+                              <h5 class="modal-title" id="exampleModalToggleLabel">Silakan Masukkan Ide Judul anda</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                             <form method="post" action="">
                                 {% csrf_token %}
                                 <div class="form-floating mb-3">
-                                    <input name="judul_1" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-                                    <label for="floatingInput">judul 1</label>
+                                    <input name="judul" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                                    <label for="floatingInput">judul</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input name="judul_2" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                                    <label for="floatingInput">judul 2</label>
+                                    <textarea name="latar_belakang" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Ringkasan Latar Belakang</label>
                                 </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <textarea name="rumusan_masalah" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Ringkasan Rumusan Masalah</label>
+                                </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <textarea name="batasan" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Ringkasan Batasan Masalah</label>
+                                </div>
+                                
                                 <div class="float-end mx-3 mb-3">
                                     <button class="btn btn-primary float-end" type="submit">Submit</button>
                                     <button class="btn btn-light float-end" type="submit">Close</button>
@@ -70,8 +81,7 @@
                                     <thead class="btn-success">
                                         <tr class="">
                                             <th>NO</th>
-                                            <th>judul 1</th>
-                                            <th>judul 2</th>
+                                            <th>judul</th>
                                             <th>Status</th>
                                             <th>Aksi</th> 
                                         </tr>
@@ -80,9 +90,8 @@
                                         {% for i in judul %}
                                         <tr class="">
                                             <td>{{forloop.counter}}</td>
-                                            <td>{{i.judul_1}}</td>
-                                            <td>{{i.judul_2}}</td>
-                                            <td>Status</td>
+                                            <td>{{i.judul}}</td>
+                                            <td>{{i.status_judul}}</td>
                                             <td>
                                                 <a href="/mhs/hapus-judul/{{i.id}}"><button type="button" class="btn btn-danger">hapus</button> </a>
                                             </td>

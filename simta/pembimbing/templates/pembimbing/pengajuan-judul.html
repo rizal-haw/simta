@@ -31,30 +31,20 @@
                     <div class="modal-body">
                         <form method="post">
                           {% csrf_token %}
-                          <!-- {% for i in data_judul%}
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" name="judul" value="{{i.id}}">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              <span>Judul <span>{{forloop.counter}}</span> : </span><span>{{i.judul_ta}}</span>
-                            </label>
-                          </div>
-                          {% endfor%} -->
-
-                          <select class="form-select" name="judul">
+                          <!-- <select class="form-select" name="judul">
                             <option selected>Pilih</option>
                             {% for i in konteks.data_judul %}
                             <option value="{{i.id}}">{{i.judul_1}}</option>
                             <option value="{{i.id}}">{{i.judul_2}}</option>
+                            <option value="{{i.id}}">Tolak</option>
                             {% endfor %}
-                          </select>
-<!--                           
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              <span>Tolak</span>
-                            </label>
-                          </div>
-                           -->
+                          </select> -->
+                          {% for i in konteks.data_judul %}
+                          <input type="radio" id="" name="judul" value="{{i.id}}">
+                          <label for="judul">{{i.judul}}</label><br>
+                          <input type="radio" id="" name="tolak" value="tolak">
+                          <label for="tolak">Tolak</label>
+                          {% endfor %}
                           <div class="form-floating mt-4">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="keterangan"></textarea>
                             <label for="floatingTextarea2">Tambahkan Keterangan</label>
@@ -87,37 +77,14 @@
                     <thead style="background-color: #198754">
                         <tr>
                             <th style="width: 3%; text-align: center; color: aliceblue;">NO</th>
-                            <th style="width: 15%; text-align: center; color: aliceblue;">Nama</th>
+                            <th style="width: 15%; text-align: center; color: aliceblue;">NAMA</th>
                             <th style="width: 7%; text-align: center; color: aliceblue;">NIM</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL 1</th>
-                            <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL 2</th>
+                            <th style="width: 20%; text-align: center; color: aliceblue;">JUDUL</th>
+                            <th style="width: 20%; text-align: center; color: aliceblue;">STATUS</th>
                             <th style="width: 5%;text-align: center; color: aliceblue">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
-<!--                       
-                      <tr>
-                            <td>{{forloop.counter}}</td>
-                            <td>Belum</td>
-                            <td>belum</td>
-                            {% for i in data_judul %}
-                            <td>{{i.judul_ta}}</td>
-                            {% endfor %}
-                            <td>
-                                <div class="d-flex flex-column">
-            
-                                  
-    
-                                      <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
-                                             <i class="" aria-hidden="true"></i>
-                                      </span><span>
-                                      Detail
-                                      </span></a>
-                                  
-                                </div>
-                            </td>
-                        </tr>
-                       -->
                        {% for i in konteks.data_pengajuan%}
                       <tr>
                             <td>{{forloop.counter}}</td>
@@ -125,14 +92,13 @@
                             <td>{{i.1}}</td>
                             <td>{{i.2}}</td>
                             <td>{{i.3}}</td>
+                            <!-- <td>{{i.4}}</td> -->
                             <td>
                                 <div class="d-flex flex-column">
-                                      <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button"><span>
-                                             <i class="" aria-hidden="true"></i>
-                                      </span><span>
-                                      Detail
-                                      </span></a>
-                                  
+                                    <a class="btn btn-success mb-1" data-bs-toggle="modal" href="#exampleModalToggle" type="button">
+                                      <span><i class="" aria-hidden="true"></i></span>
+                                      <span>Detail</span>
+                                    </a>
                                 </div>
                             </td>
                       </tr>

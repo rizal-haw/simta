@@ -14,33 +14,34 @@ def dashboardViewMhs(request):
 # ---------------------Halaman Pembibmbing-------------------------------------
 
 def index(request):
-    mahasiswa = tendik_models.MahasiswaModel.objects.all()
-    pembimbing = tendik_models.PembimbingModel.objects.all()
-    pengajuan_judul = models.Judul.objects.all()
-    pengajuan_proposal = models.proposal.objects.all()
-    pengajuan_ta = models.ta.objects.all()
-    bimbingan = models.bimbingan.objects.all()
+    # mahasiswa = tendik_models.Mahasiswa.objects.all()
+    # pembimbing = tendik_models.DosenPemb.objects.all()
+    # pengajuan_judul = models.Judul.objects.all()
+    # pengajuan_proposal = models.Proposal.objects.all()
+    # pengajuan_ta = models.Ta.objects.all()
+    # # bimbingan = models.Bimbingan.objects.all()
 
 
-    jml_mahasiswa = mahasiswa.count()
-    jml_pembimbing = pembimbing.count()
-    jml_pengajuan_judul = pengajuan_judul.count()
-    jml_pengajuan_proposal = pengajuan_proposal.count()
-    jml_pengajuan_ta = pengajuan_ta.count()
-    jml_bimbingan = bimbingan.count()
+    # jml_mahasiswa = mahasiswa.count()
+    # jml_pembimbing = pembimbing.count()
+    # jml_pengajuan_judul = pengajuan_judul.count()
+    # jml_pengajuan_proposal = pengajuan_proposal.count()
+    # jml_pengajuan_ta = pengajuan_ta.count()
+    # jml_bimbingan = bimbingan.count()
     return render (request, 'mhs/index.html', {
-        'mahasiswa' : mahasiswa,
-        'pembimbing' : pembimbing,
-        'pengajuan_judul' : pengajuan_judul,
-        'pengajuan_proposal' : pengajuan_proposal,
-        'pengajuan_ta' : pengajuan_ta,
-        'bimbingan' : bimbingan,
-        'jml_mahasiswa' : jml_mahasiswa,
-        'jml_pembimbing' : jml_pembimbing,
-        'jml_pengajuan_judul' : jml_pengajuan_judul,
-        'jml_pengajuan_proposal' : jml_pengajuan_proposal,
-        'jml_pengajuan_ta' : jml_pengajuan_ta,
-        'jml_bimbingan' : jml_bimbingan })
+        # 'mahasiswa' : mahasiswa,
+        # 'pembimbing' : pembimbing,
+        # 'pengajuan_judul' : pengajuan_judul,
+        # 'pengajuan_proposal' : pengajuan_proposal,
+        # 'pengajuan_ta' : pengajuan_ta,
+        # 'bimbingan' : bimbingan,
+        # 'jml_mahasiswa' : jml_mahasiswa,
+        # 'jml_pembimbing' : jml_pembimbing,
+        # 'jml_pengajuan_judul' : jml_pengajuan_judul,
+        # 'jml_pengajuan_proposal' : jml_pengajuan_proposal,
+        # 'jml_pengajuan_ta' : jml_pengajuan_ta,
+        # 'jml_bimbingan' : jml_bimbingan 
+        })
 
 def pembimbingViewMhs(request):
     if request.POST:
@@ -64,10 +65,12 @@ def pembimbingViewMhs(request):
 
 def pengajuanJudulViewMhs(request):
     if request.POST:
-        judul_1 = request.POST['judul_1']
-        judul_2 = request.POST['judul_2']
-        models.Judul.objects.create(
-            judul_1=judul_1, judul_2=judul_2)
+        judul = request.POST['judul']
+        latar_belakang = request.POST['latar_belakang']
+        rumusan_masalah = request.POST['rumusan_masalah']
+        batasan = request.POST['batasan']
+        
+        models.Judul.objects.create(judul=judul, latar_belakang = latar_belakang, rumusan_masalah = rumusan_masalah, batasan = batasan)
     data_judul = models.Judul.objects.all()
     # penyetujuan_judul = PenyetujuanJudul.objects.all()
     return render(request, 'mhs/pengajuan-judul.html', {
